@@ -1,0 +1,386 @@
+{
+    "animes": [
+        {
+            "_id": 1,
+            "datetime": "2019-11-01T12:00-0500",
+            "estudio": {
+                "nome": "Chilli Beans",
+                "avatar": "chillibean.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Óculos Esportivo",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 100.0,
+                "url": "https://loja.chillibeans.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "glasses0.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "glasses1.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "glasses2.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 2,
+            "datetime": "2019-10-01T12:00-0500",
+            "estudio": {
+                "nome": "Ray-Ban",
+                "avatar": "rayban.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Óculos Esportivo",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 110.0,
+                "url": "https://loja.chillibeans.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "glasses0.jpeg"
+                    },
+                    {
+                        "id": "blob5",
+                        "type": "image",
+                        "file": "glasses1.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 3,
+            "datetime": "2019-09-01T12:00-0500",
+            "estudio": {
+                "nome": "H. Stern",
+                "avatar": "hstern.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Anel",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 800.0,
+                "url": "https://www.hstern.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "jewelry0.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "jewelry1.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 4,
+            "datetime": "2019-08-01T12:00-0500",
+            "estudio": {
+                "nome": "H. Stern",
+                "avatar": "hstern.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Conjunto Brinco e Anel",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 2500.0,
+                "url": "https://www.hstern.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "jewelry0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 5,
+            "datetime": "2019-07-01T12:00-0500",
+            "estudio": {
+                "nome": "Boticário",
+                "avatar": "boticario.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Maquiagem",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 260.0,
+                "url": "https://www.boticario.com.br/",
+                "blobs": [
+                    {
+                        "id": "blob9",
+                        "type": "image",
+                        "file": "makeup0.jpg"
+                    },
+                    {
+                        "id": "blob10",
+                        "type": "image",
+                        "file": "makeup1.jpg"
+                    },
+                    {
+                        "id": "blob11",
+                        "type": "image",
+                        "file": "makeup2.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 6,
+            "datetime": "2019-06-01T12:00-0500",
+            "estudio": {
+                "nome": "Arezzo",
+                "avatar": "arezzo.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Tênis Feminino",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 450.0,
+                "url": "https://www.arezzo.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "shoes0.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes1.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes2.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 7,
+            "datetime": "2019-05-01T12:00-0500",
+            "estudio": {
+                "nome": "Dafiti",
+                "avatar": "dafiti.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Tênis Feminino",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 420.0,
+                "url": "https://www.dafiti.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "shoes0.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes1.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes2.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 8,
+            "datetime": "2019-11-01T12:00-0500",
+            "estudio": {
+                "nome": "Chilli Beans",
+                "avatar": "chillibean.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Óculos Esportivo",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 100.0,
+                "url": "https://loja.chillibeans.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "glasses0.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "glasses1.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "glasses2.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 9,
+            "datetime": "2019-10-01T12:00-0500",
+            "estudio": {
+                "nome": "Ray-Ban",
+                "avatar": "rayban.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Óculos Esportivo",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 110.0,
+                "url": "https://loja.chillibeans.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "glasses0.jpeg"
+                    },
+                    {
+                        "id": "blob5",
+                        "type": "image",
+                        "file": "glasses1.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 10,
+            "datetime": "2019-09-01T12:00-0500",
+            "estudio": {
+                "nome": "H. Stern",
+                "avatar": "hstern.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Anel",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 800.0,
+                "url": "https://www.hstern.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "jewelry0.jpeg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "jewelry1.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 11,
+            "datetime": "2019-08-01T12:00-0500",
+            "estudio": {
+                "nome": "H. Stern",
+                "avatar": "hstern.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Conjunto Brinco e Anel",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 2500.0,
+                "url": "https://www.hstern.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "jewelry0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 12,
+            "datetime": "2019-07-01T12:00-0500",
+            "estudio": {
+                "nome": "Boticário",
+                "avatar": "boticario.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Maquiagem",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 260.0,
+                "url": "https://www.boticario.com.br/",
+                "blobs": [
+                    {
+                        "id": "blob9",
+                        "type": "image",
+                        "file": "makeup0.jpg"
+                    },
+                    {
+                        "id": "blob10",
+                        "type": "image",
+                        "file": "makeup1.jpg"
+                    },
+                    {
+                        "id": "blob11",
+                        "type": "image",
+                        "file": "makeup2.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 13,
+            "datetime": "2019-06-01T12:00-0500",
+            "estudio": {
+                "nome": "Arezzo",
+                "avatar": "arezzo.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Tênis Feminino",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 450.0,
+                "url": "https://www.arezzo.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "shoes0.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes1.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes2.jpg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 14,
+            "datetime": "2019-05-01T12:00-0500",
+            "estudio": {
+                "nome": "Dafiti",
+                "avatar": "dafiti.jpeg"
+            },
+            "likes": 0,
+            "anime": {
+                "nome": "Tênis Feminino",
+                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "nota": 420.0,
+                "url": "https://www.dafiti.com.br/",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "shoes0.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes1.jpg"
+                    },
+                    {
+                        "type": "image",
+                        "file": "shoes2.jpg"
+                    }
+                ]
+            }
+        }
+    ]
+}
