@@ -321,7 +321,7 @@ class _DetalhesState extends State<Detalhes> {
                                   _curtiu = true;
                                 });
 
-                                Toast.show("Obrigado pela avaliação",
+                                Toast.show("Anime adicionado aos Favoritos",
                                     duration: Toast.lengthLong,
                                     gravity: Toast.bottom);
                               }
@@ -335,7 +335,7 @@ class _DetalhesState extends State<Detalhes> {
                     IconButton(
                         onPressed: () {
                           final texto =
-                              '${_anime["anime"]["nome"]} disponível para assistir no My Animes.\n\n\nBaixe o My Animes na PlayStore!';
+                              '${_anime["anime"]["nome"]} disponível para assistir em: ${_anime["anime"]["url"]}';
 
                           FlutterShare.share(title: "My Animes", text: texto);
                         },

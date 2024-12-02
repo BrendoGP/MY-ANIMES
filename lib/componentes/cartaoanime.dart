@@ -37,8 +37,11 @@ class AnimeCartao extends StatelessWidget {
           const Spacer(),
           Row(children: [
             Padding(
-                padding: const EdgeInsets.only(left: 50, bottom: 5),
-                child: Text("Nota: ${anime['anime']['nota'].toString()}")),
+            padding: const EdgeInsets.only(left: 50, bottom: 30),
+            child: Text("Nota: ${anime['anime']['nota'].toString()}",
+            style: TextStyle( fontSize: 18, fontWeight: FontWeight.bold,),
+            ),
+    ),
 
           ])
         ]),
