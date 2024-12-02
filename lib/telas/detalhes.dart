@@ -15,7 +15,7 @@ class Detalhes extends StatefulWidget {
   State<StatefulWidget> createState() {
     return _DetalhesState();
   }
-}//Detalhes
+} //Detalhes
 
 //verificar como esta a situação do Anime
 enum _EstadoAnime { naoVerificado, temAnime, semAnime }
@@ -55,10 +55,12 @@ class _DetalhesState extends State<Detalhes> {
   }
 
   Future<void> _lerFeedEstatico() async {
-    String conteudoJson = await rootBundle.loadString("lib/recursos/json/feed.json");
+    String conteudoJson =
+        await rootBundle.loadString("lib/recursos/json/feed.json");
     _feedEstatico = await json.decode(conteudoJson);
 
-    conteudoJson = await rootBundle.loadString("lib/recursos/json/comentarios.json");
+    conteudoJson =
+        await rootBundle.loadString("lib/recursos/json/comentarios.json");
     _comentariosEstaticos = await json.decode(conteudoJson);
 
     _carregarAnime();
@@ -71,24 +73,30 @@ class _DetalhesState extends State<Detalhes> {
       _anime = _feedEstatico['animes']
           .firstWhere((produto) => produto["_id"] == estadoApp.idAnime);
 
-      _temAnime = _anime != null ? _EstadoAnime.temAnime : _EstadoAnime.semAnime; });
-  }//carregarAnime
+      _temAnime =
+          _anime != null ? _EstadoAnime.temAnime : _EstadoAnime.semAnime;
+    });
+  } //carregarAnime
 
 //Carregar comentários do anime
   void _carregarComentarios() {
-    setState(() { _carregandoComentarios = true; });
+    setState(() {
+      _carregandoComentarios = true;
+    });
 
     var maisComentarios = [];
     _comentariosEstaticos["comentarios"].where((item) {
       return item["feed"] == estadoApp.idAnime;
-    }).forEach((item) { maisComentarios.add(item); });
+    }).forEach((item) {
+      maisComentarios.add(item);
+    });
 
     setState(() {
       _carregandoComentarios = false;
       _comentarios = maisComentarios;
       _temComentarios = _comentarios.isNotEmpty;
     });
-  }//carregarComentarios
+  } //carregarComentarios
 
   Widget _exibirMensagemAnimeInexistente() {
     return Scaffold(
@@ -120,7 +128,7 @@ class _DetalhesState extends State<Detalhes> {
           Text("selecione outro anime na tela anterior :)",
               style: TextStyle(fontSize: 14))
         ])));
-  }//anime inexistente
+  } //anime inexistente
 
   Widget _exibirMensagemComentariosInexistentes() {
     return const Expanded(
@@ -130,7 +138,7 @@ class _DetalhesState extends State<Detalhes> {
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 18, color: Colors.red))
     ]));
-  }// comentario inexistente
+  } // comentario inexistente
 
   Widget _exibirComentarios() {
     return Expanded(
@@ -141,11 +149,13 @@ class _DetalhesState extends State<Detalhes> {
         String dataFormatada = DateFormat('dd/MM/yyyy HH:mm')
             .format(DateTime.parse(item["datetime"]));
         bool usuarioLogadoComentou = estadoApp.usuario != null &&
-             estadoApp.usuario!.email == item["user"]["email"];
+            estadoApp.usuario!.email == item["user"]["email"];
 
         return Dismissible(
           key: Key(item["_id"].toString()),
-          direction: usuarioLogadoComentou ? DismissDirection.endToStart : DismissDirection.none,
+          direction: usuarioLogadoComentou
+              ? DismissDirection.endToStart
+              : DismissDirection.none,
           background: Container(
               alignment: Alignment.centerRight,
               child: const Padding(
@@ -252,7 +262,9 @@ class _DetalhesState extends State<Detalhes> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Row(children: [
           Row(children: [
-            Image.asset('lib/recursos/imagens/avatar.png', width: 38),
+            Image.network(
+                'https://th.bing.com/th/id/OIP.Zl0PlmOMSSbHmP_OI9xZgAHaEK?rs=1&pid=ImgDetMain',
+                width: 38),
             Padding(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
                 child: Text(
@@ -325,8 +337,7 @@ class _DetalhesState extends State<Detalhes> {
                           final texto =
                               '${_anime["anime"]["nome"]} disponível para assistir no My Animes.\n\n\nBaixe o My Animes na PlayStore!';
 
-                          FlutterShare.share(
-                              title: "My Animes", text: texto);
+                          FlutterShare.share(title: "My Animes", text: texto);
                         },
                         icon: const Icon(Icons.share),
                         color: Colors.blue,
@@ -429,11 +440,9 @@ class _DetalhesState extends State<Detalhes> {
 
     if (_temAnime == _EstadoAnime.naoVerificado) {
       detalhes = const SizedBox.shrink();
-    } 
-    else if (_temAnime == _EstadoAnime.temAnime) {
+    } else if (_temAnime == _EstadoAnime.temAnime) {
       detalhes = _exibirAnime();
-    }
-    else {
+    } else {
       detalhes = _exibirMensagemAnimeInexistente();
     }
     return detalhes;

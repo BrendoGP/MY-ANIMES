@@ -20,7 +20,7 @@ class AnimeCartao extends StatelessWidget {
           Row(children: [
             CircleAvatar(
                 backgroundColor: Colors.transparent,
-                child: Image.asset("lib/recursos/imagens/avatar.png")),
+                child: Image.network("https://th.bing.com/th/id/OIP.Zl0PlmOMSSbHmP_OI9xZgAHaEK?rs=1&pid=ImgDetMain")),
             Padding(
                 padding: const EdgeInsets.only(left: 5),
                 child: Text(anime["estudio"]["nome"],
