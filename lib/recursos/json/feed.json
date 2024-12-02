@@ -5,7 +5,7 @@
             "datetime": "2021-01-15T12:00-0500",
             "estudio": {
                 "nome": "Ufotable",
-                "avatar": "ufotable.jpeg"
+                "avatar": "https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"
             },
             "likes": 1000,
             "anime": {
@@ -13,12 +13,7 @@
                 "sinopse": "Tanjiro Kamado embarca em uma jornada para salvar sua irmã Nezuko e derrotar os demônios.",
                 "nota": 9.8,
                 "url": "https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "demon_slayer0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5f56fe0b6b40c3.75541837.jpg%3FlastEdited%3D1599536658%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -26,7 +21,7 @@
             "datetime": "2021-02-20T12:00-0500",
             "estudio": {
                 "nome": "MAPPA",
-                "avatar": "mappa.jpeg"
+                "avatar": "https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"
             },
             "likes": 1500,
             "anime": {
@@ -34,12 +29,7 @@
                 "sinopse": "Yuji Itadori se junta a uma escola de feiticeiros para combater maldições perigosas.",
                 "nota": 9.5,
                 "url": "https://www.crunchyroll.com/jujutsu-kaisen",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "jujutsu_kaisen0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fdev-beta.quizur.com%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagens%2F%2F20085070%2F527d4851-96ef-4d21-9bd9-3a0ae4898e3d.png%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -47,7 +37,7 @@
             "datetime": "2020-10-01T12:00-0500",
             "estudio": {
                 "nome": "Studio Bones",
-                "avatar": "bones.jpeg"
+                "avatar": "https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"
             },
             "likes": 1200,
             "anime": {
@@ -55,12 +45,7 @@
                 "sinopse": "Izuku Midoriya, um jovem sem poderes, luta para se tornar o maior herói do mundo.",
                 "nota": 9.2,
                 "url": "https://www.crunchyroll.com/my-hero-academia",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "my_hero_academia0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg632df9d169d248.83347137.png%3FlastEdited%3D1663957473%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -68,7 +53,7 @@
             "datetime": "2021-03-03T12:00-0500",
             "estudio": {
                 "nome": "Kyoto Animation",
-                "avatar": "kyoto_animation.jpeg"
+                "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdnE7e_KxTI9nR62ZUH0oSfI_t2I_bJ5UYQ&s"
             },
             "likes": 800,
             "anime": {
@@ -76,12 +61,7 @@
                 "sinopse": "Violet, uma jovem ex-soldado, descobre o significado de emoções humanas.",
                 "nota": 9.3,
                 "url": "https://www.netflix.com/title/80182123",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "violet_evergarden0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5cefe734028534.58965719.jpg%3FlastEdited%3D1559226197%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -89,7 +69,7 @@
             "datetime": "2022-05-15T12:00-0500",
             "estudio": {
                 "nome": "Toei Animation",
-                "avatar": "toei_animation.jpeg"
+                "avatar": "https://www.nicepng.com/png/detail/315-3153350_toei-animation-toei-animation-logo-png.png"
             },
             "likes": 900,
             "anime": {
@@ -97,12 +77,7 @@
                 "sinopse": "Luffy e sua tripulação buscam o tesouro lendário para se tornarem os maiores piratas.",
                 "nota": 9.7,
                 "url": "https://www.crunchyroll.com/one-piece",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "one_piece0.jpg"
-                    }
-                ]
+                "imagem": "https://sm.ign.com/t/ign_br/tv/o/one-piece-/one-piece-2_1xby.300.jpg"
             }
         },
         {
@@ -110,7 +85,7 @@
             "datetime": "2021-04-10T12:00-0500",
             "estudio": {
                 "nome": "Studio Pierrot",
-                "avatar": "pierrot.jpeg"
+                "avatar": "https://i.pinimg.com/originals/33/15/38/331538b84919881127b9f606f23e471c.png"
             },
             "likes": 1100,
             "anime": {
@@ -118,12 +93,7 @@
                 "sinopse": "Naruto Uzumaki sonha em se tornar Hokage e proteger sua vila.",
                 "nota": 9.0,
                 "url": "https://www.crunchyroll.com/naruto",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "naruto0.jpg"
-                    }
-                ]
+                "imagem": "https://www.presentespara.com.br/wp-content/uploads/2024/02/naruto-300x200.webp"
             }
         },
         {
@@ -131,7 +101,7 @@
             "datetime": "2021-06-01T12:00-0500",
             "estudio": {
                 "nome": "Madhouse",
-                "avatar": "madhouse.jpeg"
+                "avatar": "https://iconape.com/wp-content/png_logo_vector/madhouse-studio-logo.png"
             },
             "likes": 950,
             "anime": {
@@ -139,12 +109,7 @@
                 "sinopse": "Gon Freecss explora o mundo como um caçador em busca de seu pai desaparecido.",
                 "nota": 9.6,
                 "url": "https://www.crunchyroll.com/hunter-x-hunter",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "hunter_x_hunter0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg630907f35d8429.91690414.jpg%3FlastEdited%3D1661536257%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -152,7 +117,7 @@
             "datetime": "2021-07-20T12:00-0500",
             "estudio": {
                 "nome": "White Fox",
-                "avatar": "white_fox.jpeg"
+                "avatar": "https://hyphen.cc/works/1010_whitefox_logo.gif"
             },
             "likes": 780,
             "anime": {
@@ -160,12 +125,7 @@
                 "sinopse": "Subaru Natsuki é transportado para um mundo paralelo e descobre um ciclo de mortes e renascimentos.",
                 "nota": 9.1,
                 "url": "https://www.crunchyroll.com/re-zero",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "re_zero0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg600b43e8653c92.22869302.jpg%3FlastEdited%3D1611351039%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -173,7 +133,7 @@
             "datetime": "2020-11-01T12:00-0500",
             "estudio": {
                 "nome": "Sunrise",
-                "avatar": "sunrise.jpeg"
+                "avatar": "https://img.freepik.com/vetores-premium/resumo-sun-logo-vintage-sun-icon-com-raios-isolados-no-fundo-branco-utilizavel-para-logotipos-de-negocios-e-natureza-elemento-de-modelo-de-design-de-logotipo-de-vetor-plana_393879-336.jpg"
             },
             "likes": 870,
             "anime": {
@@ -181,20 +141,15 @@
                 "sinopse": "Caçadores de recompensa viajam pelo espaço enfrentando perigos e desafios emocionais.",
                 "nota": 9.4,
                 "url": "https://www.crunchyroll.com/cowboy-bebop",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "cowboy_bebop0.jpg"
-                    }
-                ]
-            }
+                "imagem": "https://animegoo.wordpress.com/wp-content/uploads/2010/06/a7a52-1201765524-cowboy_bebop_49.jpg?w=300"
+                }
         },
         {
             "_id": 10,
             "datetime": "2021-08-01T12:00-0500",
             "estudio": {
                 "nome": "Production I.G",
-                "avatar": "production_ig.jpeg"
+                "avatar": "https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"
             },
             "likes": 920,
             "anime": {
@@ -202,12 +157,7 @@
                 "sinopse": "Shoyo Hinata se esforça para se tornar um dos melhores jogadores de vôlei do Japão.",
                 "nota": 9.0,
                 "url": "https://www.crunchyroll.com/haikyuu",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "haikyuu0.jpg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg60b2dc42ded784.39796013.jpg%3FlastEdited%3D1622334536%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -215,7 +165,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Studio Ghibli",
-                "avatar": "ghibli.jpeg"
+                "avatar": "https://e7.pngegg.com/pngimages/426/435/png-clipart-ghibli-museum-catbus-studio-ghibli-my-neighbor-totoro-chihiro-ghibli-museum-catbus-thumbnail.png"
             },
             "likes": 822,
             "anime": {
@@ -223,12 +173,7 @@
                 "sinopse": "Chihiro entra em um mundo espiritual e luta para resgatar seus pais transformados em porcos.",
                 "nota": 9.0,
                 "url": "https://www.crunchyroll.com/spirited-away",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "spirited_away0.jpeg"
-                    }
-                ]
+                "imagem": "https://images5.fanpop.com/image/photos/30900000/No-Face-no-face-of-spirited-away-30995284-300-200.jpg"
             }
         },
         {
@@ -236,7 +181,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Production I.G",
-                "avatar": "productionig.jpeg"
+                "avatar": "https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"
             },
             "likes": 1530,
             "anime": {
@@ -244,20 +189,15 @@
                 "sinopse": "Motoko Kusanagi, uma ciborgue com uma consciência humana, investiga crimes cibernéticos.",
                 "nota": 6.5,
                 "url": "https://www.crunchyroll.com/ghost-in-the-shell",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "ghost_in_the_shell0.jpeg"
-                    }
-                ]
+                "imagem": "https://www.einerd.com.br/wp-content/uploads/2017/04/Ghost-277x190.jpg"
             }
         },
         {
             "_id": 12,
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
-                "nome": "Bones",
-                "avatar": "bones.jpeg"
+                "nome": "Studios Bones",
+                "avatar": "https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"
             },
             "likes": 1530,
             "anime": {
@@ -265,12 +205,7 @@
                 "sinopse": "Dois irmãos tentam recuperar seus corpos após um experimento alquímico falho.",
                 "nota": 9.9,
                 "url": "https://www.crunchyroll.com/fullmetal-alchemist-brotherhood",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "fullmetal_alchemist_brotherhood0.jpeg"
-                    }
-                ]
+                "imagem": "https://specialdaysmax.wordpress.com/wp-content/uploads/2011/03/20930-fullmetal-alchemist-brotherhood1.jpg?w=300"
             }
         },
         {
@@ -278,20 +213,15 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Silver Link",
-                "avatar": "silverlink.jpeg"
+                "avatar": "https://static.wixstatic.com/media/d3fb2b_8d32b0e6d0714e6fb1b32eb4749814ca~mv2.png/v1/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Silver%20Link%20Logo.png"
             },
             "likes": 1530,
             "anime": {
-                "nome": "Re:Zero",
+                "nome": "Re:Zero II temporada",
                 "sinopse": "Subaru Natsuki é transportado para um mundo paralelo e reviverá sua morte até mudar o futuro.",
                 "nota": 8.8,
                 "url": "https://www.crunchyroll.com/re-zero",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "rezero0.jpeg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg600b43e8653c92.22869302.jpg%3FlastEdited%3D1611351039%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -299,7 +229,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "A-1 Pictures",
-                "avatar": "a1pictures.jpeg"
+                "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A-1_Pictures_Logo.svg/512px-A-1_Pictures_Logo.svg.png"
             },
             "likes": 1530,
             "anime": {
@@ -307,12 +237,7 @@
                 "sinopse": "Um grupo de crianças descobre os segredos sombrios por trás do orfanato em que vivem.",
                 "nota": 8.5,
                 "url": "https://www.crunchyroll.com/the-promised-neverland",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "promised_neverland0.jpeg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg6071b8a4016e43.07710244.jpg%3FlastEdited%3D1618065576%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -320,7 +245,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "MAPPA",
-                "avatar": "mappa.jpeg"
+                "avatar": "https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"
             },
             "likes": 670,
             "anime": {
@@ -328,12 +253,7 @@
                 "sinopse": "Um patinador japonês busca redenção e vitórias com a ajuda de seu treinador, Yuri Katsuki.",
                 "nota": 7.3,
                 "url": "https://www.crunchyroll.com/yuri-on-ice",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "yuri_on_ice0.jpeg"
-                    }
-                ]
+                "imagem": "https://rukminim1.flixcart.com/image/300/300/xif0q/poster/s/l/k/medium-pwfkt12250-anime-yuri-on-ice-viktor-nikiforov-yuri-matte-original-imagg6hyzndggtgz.jpeg"
             }
         },
         {
@@ -341,7 +261,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Xebec",
-                "avatar": "xebec.jpeg"
+                "avatar": "https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"
             },
             "likes": 1530,
             "anime": {
@@ -349,12 +269,7 @@
                 "sinopse": "Keitaro Urashima tenta entrar na universidade de Tóquio e gerenciar um dormitório cheio de garotas.",
                 "nota": 8.2,
                 "url": "https://www.crunchyroll.com/love-hina",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "love_hina0.jpeg"
-                    }
-                ]
+                "imagem": "https://static.wikia.nocookie.net/lovehina/images/b/b7/HinataResidents1.jpg/revision/latest/scale-to-width-down/300?cb=20110429134501"
             }
         },
         {
@@ -362,7 +277,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Studio Deen",
-                "avatar": "deens.jpeg"
+                "avatar": "https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"
             },
             "likes": 230,
             "anime": {
@@ -370,12 +285,7 @@
                 "sinopse": "Toru Honda descobre os segredos da família Soma, cujos membros se transformam em animais do zodíaco chinês.",
                 "nota": 6.4,
                 "url": "https://www.crunchyroll.com/fruits-basket",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "fruits_basket0.jpeg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg643dc5878081c1.82918645.jpg%3FlastEdited%3D1681769867%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -383,7 +293,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "P.A. Works",
-                "avatar": "p.works.jpeg"
+                "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s"
             },
             "likes": 960,
             "anime": {
@@ -391,12 +301,7 @@
                 "sinopse": "Após morrer, um grupo de jovens tenta encontrar a paz enquanto enfrentam desafios em uma escola sobrenatural.",
                 "nota": 8.9,
                 "url": "https://www.crunchyroll.com/angel-beats",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "angel_beats0.jpeg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fstatic.quizur.com%2Fi%2Fb%2F574b5467a78b09.3975851913322191-138516956561315-2742448555925565955-n.jpg%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         },
         {
@@ -404,7 +309,7 @@
             "datetime": "2024-12-01T12:00-0500",
             "estudio": {
                 "nome": "Studio Bones",
-                "avatar": "bones.jpeg"
+                "avatar": "https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"
             },
             "likes": 1710,
             "anime": {
@@ -412,12 +317,7 @@
                 "sinopse": "Yato, um deus menor, busca fama e seguidores enquanto ajuda a resolver os problemas dos humanos.",
                 "nota": 9.7,
                 "url": "https://www.crunchyroll.com/noragami",
-                "blobs": [
-                    {
-                        "type": "image",
-                        "file": "noragami0.jpeg"
-                    }
-                ]
+                "imagem": "https://pt.quizur.com/_image?href=https%3A%2F%2Fstatic.quizur.com%2Fi%2Fb%2F58e9b3ba6e20d7.6316032958e9b3ba5bc9b0.10101485.jpg%3Fo%3Dfeed&w=250&h=300&f=webp"
             }
         }
     ]
