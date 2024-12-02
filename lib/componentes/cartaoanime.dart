@@ -37,15 +37,9 @@ class AnimeCartao extends StatelessWidget {
           const Spacer(),
           Row(children: [
             Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 5),
+                padding: const EdgeInsets.only(left: 50, bottom: 5),
                 child: Text("Nota: ${anime['anime']['nota'].toString()}")),
-            Padding(
-                padding: const EdgeInsets.only(left: 8, bottom: 5),
-                child: Row(children: [
-                  const Icon(Icons.favorite_rounded,
-                      color: Colors.red, size: 18),
-                  Text(anime["likes"].toString())
-                ])),
+
           ])
         ]),
       ),

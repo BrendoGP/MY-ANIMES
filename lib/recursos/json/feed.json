@@ -2,382 +2,420 @@
     "animes": [
         {
             "_id": 1,
-            "datetime": "2019-11-01T12:00-0500",
+            "datetime": "2021-01-15T12:00-0500",
             "estudio": {
-                "nome": "Chilli Beans",
-                "avatar": "chillibean.jpeg"
+                "nome": "Ufotable",
+                "avatar": "ufotable.jpeg"
             },
-            "likes": 0,
+            "likes": 1000,
             "anime": {
-                "nome": "Óculos Esportivo",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 100.0,
-                "url": "https://loja.chillibeans.com.br/",
+                "nome": "Demon Slayer: Kimetsu no Yaiba",
+                "sinopse": "Tanjiro Kamado embarca em uma jornada para salvar sua irmã Nezuko e derrotar os demônios.",
+                "nota": 9.8,
+                "url": "https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "glasses0.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "glasses1.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "glasses2.jpeg"
+                        "file": "demon_slayer0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 2,
-            "datetime": "2019-10-01T12:00-0500",
+            "datetime": "2021-02-20T12:00-0500",
             "estudio": {
-                "nome": "Ray-Ban",
-                "avatar": "rayban.jpeg"
+                "nome": "MAPPA",
+                "avatar": "mappa.jpeg"
             },
-            "likes": 0,
+            "likes": 1500,
             "anime": {
-                "nome": "Óculos Esportivo",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 110.0,
-                "url": "https://loja.chillibeans.com.br/",
+                "nome": "Jujutsu Kaisen",
+                "sinopse": "Yuji Itadori se junta a uma escola de feiticeiros para combater maldições perigosas.",
+                "nota": 9.5,
+                "url": "https://www.crunchyroll.com/jujutsu-kaisen",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "glasses0.jpeg"
-                    },
-                    {
-                        "id": "blob5",
-                        "type": "image",
-                        "file": "glasses1.jpeg"
+                        "file": "jujutsu_kaisen0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 3,
-            "datetime": "2019-09-01T12:00-0500",
+            "datetime": "2020-10-01T12:00-0500",
             "estudio": {
-                "nome": "H. Stern",
-                "avatar": "hstern.jpeg"
+                "nome": "Studio Bones",
+                "avatar": "bones.jpeg"
             },
-            "likes": 0,
+            "likes": 1200,
             "anime": {
-                "nome": "Anel",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 800.0,
-                "url": "https://www.hstern.com.br/",
+                "nome": "My Hero Academia",
+                "sinopse": "Izuku Midoriya, um jovem sem poderes, luta para se tornar o maior herói do mundo.",
+                "nota": 9.2,
+                "url": "https://www.crunchyroll.com/my-hero-academia",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "jewelry0.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "jewelry1.jpeg"
+                        "file": "my_hero_academia0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 4,
-            "datetime": "2019-08-01T12:00-0500",
+            "datetime": "2021-03-03T12:00-0500",
             "estudio": {
-                "nome": "H. Stern",
-                "avatar": "hstern.jpeg"
+                "nome": "Kyoto Animation",
+                "avatar": "kyoto_animation.jpeg"
             },
-            "likes": 0,
+            "likes": 800,
             "anime": {
-                "nome": "Conjunto Brinco e Anel",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 2500.0,
-                "url": "https://www.hstern.com.br/",
+                "nome": "Violet Evergarden",
+                "sinopse": "Violet, uma jovem ex-soldado, descobre o significado de emoções humanas.",
+                "nota": 9.3,
+                "url": "https://www.netflix.com/title/80182123",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "jewelry0.jpeg"
+                        "file": "violet_evergarden0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 5,
-            "datetime": "2019-07-01T12:00-0500",
+            "datetime": "2022-05-15T12:00-0500",
             "estudio": {
-                "nome": "Boticário",
-                "avatar": "boticario.jpeg"
+                "nome": "Toei Animation",
+                "avatar": "toei_animation.jpeg"
             },
-            "likes": 0,
+            "likes": 900,
             "anime": {
-                "nome": "Maquiagem",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 260.0,
-                "url": "https://www.boticario.com.br/",
+                "nome": "One Piece",
+                "sinopse": "Luffy e sua tripulação buscam o tesouro lendário para se tornarem os maiores piratas.",
+                "nota": 9.7,
+                "url": "https://www.crunchyroll.com/one-piece",
                 "blobs": [
                     {
-                        "id": "blob9",
                         "type": "image",
-                        "file": "makeup0.jpg"
-                    },
-                    {
-                        "id": "blob10",
-                        "type": "image",
-                        "file": "makeup1.jpg"
-                    },
-                    {
-                        "id": "blob11",
-                        "type": "image",
-                        "file": "makeup2.jpg"
+                        "file": "one_piece0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 6,
-            "datetime": "2019-06-01T12:00-0500",
+            "datetime": "2021-04-10T12:00-0500",
             "estudio": {
-                "nome": "Arezzo",
-                "avatar": "arezzo.jpeg"
+                "nome": "Studio Pierrot",
+                "avatar": "pierrot.jpeg"
             },
-            "likes": 0,
+            "likes": 1100,
             "anime": {
-                "nome": "Tênis Feminino",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 450.0,
-                "url": "https://www.arezzo.com.br/",
+                "nome": "Naruto",
+                "sinopse": "Naruto Uzumaki sonha em se tornar Hokage e proteger sua vila.",
+                "nota": 9.0,
+                "url": "https://www.crunchyroll.com/naruto",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes0.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes1.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes2.jpg"
+                        "file": "naruto0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 7,
-            "datetime": "2019-05-01T12:00-0500",
+            "datetime": "2021-06-01T12:00-0500",
             "estudio": {
-                "nome": "Dafiti",
-                "avatar": "dafiti.jpeg"
+                "nome": "Madhouse",
+                "avatar": "madhouse.jpeg"
             },
-            "likes": 0,
+            "likes": 950,
             "anime": {
-                "nome": "Tênis Feminino",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 420.0,
-                "url": "https://www.dafiti.com.br/",
+                "nome": "Hunter x Hunter",
+                "sinopse": "Gon Freecss explora o mundo como um caçador em busca de seu pai desaparecido.",
+                "nota": 9.6,
+                "url": "https://www.crunchyroll.com/hunter-x-hunter",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes0.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes1.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes2.jpg"
+                        "file": "hunter_x_hunter0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 8,
-            "datetime": "2019-11-01T12:00-0500",
+            "datetime": "2021-07-20T12:00-0500",
             "estudio": {
-                "nome": "Chilli Beans",
-                "avatar": "chillibean.jpeg"
+                "nome": "White Fox",
+                "avatar": "white_fox.jpeg"
             },
-            "likes": 0,
+            "likes": 780,
             "anime": {
-                "nome": "Óculos Esportivo",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 100.0,
-                "url": "https://loja.chillibeans.com.br/",
+                "nome": "Re:Zero",
+                "sinopse": "Subaru Natsuki é transportado para um mundo paralelo e descobre um ciclo de mortes e renascimentos.",
+                "nota": 9.1,
+                "url": "https://www.crunchyroll.com/re-zero",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "glasses0.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "glasses1.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "glasses2.jpeg"
+                        "file": "re_zero0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 9,
-            "datetime": "2019-10-01T12:00-0500",
+            "datetime": "2020-11-01T12:00-0500",
             "estudio": {
-                "nome": "Ray-Ban",
-                "avatar": "rayban.jpeg"
+                "nome": "Sunrise",
+                "avatar": "sunrise.jpeg"
             },
-            "likes": 0,
+            "likes": 870,
             "anime": {
-                "nome": "Óculos Esportivo",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 110.0,
-                "url": "https://loja.chillibeans.com.br/",
+                "nome": "Cowboy Bebop",
+                "sinopse": "Caçadores de recompensa viajam pelo espaço enfrentando perigos e desafios emocionais.",
+                "nota": 9.4,
+                "url": "https://www.crunchyroll.com/cowboy-bebop",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "glasses0.jpeg"
-                    },
-                    {
-                        "id": "blob5",
-                        "type": "image",
-                        "file": "glasses1.jpeg"
+                        "file": "cowboy_bebop0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 10,
-            "datetime": "2019-09-01T12:00-0500",
+            "datetime": "2021-08-01T12:00-0500",
             "estudio": {
-                "nome": "H. Stern",
-                "avatar": "hstern.jpeg"
+                "nome": "Production I.G",
+                "avatar": "production_ig.jpeg"
             },
-            "likes": 0,
+            "likes": 920,
             "anime": {
-                "nome": "Anel",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 800.0,
-                "url": "https://www.hstern.com.br/",
+                "nome": "Haikyuu!!",
+                "sinopse": "Shoyo Hinata se esforça para se tornar um dos melhores jogadores de vôlei do Japão.",
+                "nota": 9.0,
+                "url": "https://www.crunchyroll.com/haikyuu",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "jewelry0.jpeg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "jewelry1.jpeg"
+                        "file": "haikyuu0.jpg"
                     }
                 ]
             }
         },
         {
             "_id": 11,
-            "datetime": "2019-08-01T12:00-0500",
+            "datetime": "2024-12-01T12:00-0500",
             "estudio": {
-                "nome": "H. Stern",
-                "avatar": "hstern.jpeg"
+                "nome": "Studio Ghibli",
+                "avatar": "ghibli.jpeg"
             },
-            "likes": 0,
+            "likes": 822,
             "anime": {
-                "nome": "Conjunto Brinco e Anel",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 2500.0,
-                "url": "https://www.hstern.com.br/",
+                "nome": "Spirited Away",
+                "sinopse": "Chihiro entra em um mundo espiritual e luta para resgatar seus pais transformados em porcos.",
+                "nota": 9.0,
+                "url": "https://www.crunchyroll.com/spirited-away",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "jewelry0.jpeg"
+                        "file": "spirited_away0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 11,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "Production I.G",
+                "avatar": "productionig.jpeg"
+            },
+            "likes": 1530,
+            "anime": {
+                "nome": "Ghost in the Shell",
+                "sinopse": "Motoko Kusanagi, uma ciborgue com uma consciência humana, investiga crimes cibernéticos.",
+                "nota": 6.5,
+                "url": "https://www.crunchyroll.com/ghost-in-the-shell",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "ghost_in_the_shell0.jpeg"
                     }
                 ]
             }
         },
         {
             "_id": 12,
-            "datetime": "2019-07-01T12:00-0500",
+            "datetime": "2024-12-01T12:00-0500",
             "estudio": {
-                "nome": "Boticário",
-                "avatar": "boticario.jpeg"
+                "nome": "Bones",
+                "avatar": "bones.jpeg"
             },
-            "likes": 0,
+            "likes": 1530,
             "anime": {
-                "nome": "Maquiagem",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 260.0,
-                "url": "https://www.boticario.com.br/",
+                "nome": "Fullmetal Alchemist: Brotherhood",
+                "sinopse": "Dois irmãos tentam recuperar seus corpos após um experimento alquímico falho.",
+                "nota": 9.9,
+                "url": "https://www.crunchyroll.com/fullmetal-alchemist-brotherhood",
                 "blobs": [
                     {
-                        "id": "blob9",
                         "type": "image",
-                        "file": "makeup0.jpg"
-                    },
-                    {
-                        "id": "blob10",
-                        "type": "image",
-                        "file": "makeup1.jpg"
-                    },
-                    {
-                        "id": "blob11",
-                        "type": "image",
-                        "file": "makeup2.jpg"
+                        "file": "fullmetal_alchemist_brotherhood0.jpeg"
                     }
                 ]
             }
         },
         {
             "_id": 13,
-            "datetime": "2019-06-01T12:00-0500",
+            "datetime": "2024-12-01T12:00-0500",
             "estudio": {
-                "nome": "Arezzo",
-                "avatar": "arezzo.jpeg"
+                "nome": "Silver Link",
+                "avatar": "silverlink.jpeg"
             },
-            "likes": 0,
+            "likes": 1530,
             "anime": {
-                "nome": "Tênis Feminino",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 450.0,
-                "url": "https://www.arezzo.com.br/",
+                "nome": "Re:Zero",
+                "sinopse": "Subaru Natsuki é transportado para um mundo paralelo e reviverá sua morte até mudar o futuro.",
+                "nota": 8.8,
+                "url": "https://www.crunchyroll.com/re-zero",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes0.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes1.jpg"
-                    },
-                    {
-                        "type": "image",
-                        "file": "shoes2.jpg"
+                        "file": "rezero0.jpeg"
                     }
                 ]
             }
         },
         {
             "_id": 14,
-            "datetime": "2019-05-01T12:00-0500",
+            "datetime": "2024-12-01T12:00-0500",
             "estudio": {
-                "nome": "Dafiti",
-                "avatar": "dafiti.jpeg"
+                "nome": "A-1 Pictures",
+                "avatar": "a1pictures.jpeg"
             },
-            "likes": 0,
+            "likes": 1530,
             "anime": {
-                "nome": "Tênis Feminino",
-                "sinopse": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "nota": 420.0,
-                "url": "https://www.dafiti.com.br/",
+                "nome": "The Promised Neverland",
+                "sinopse": "Um grupo de crianças descobre os segredos sombrios por trás do orfanato em que vivem.",
+                "nota": 8.5,
+                "url": "https://www.crunchyroll.com/the-promised-neverland",
                 "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes0.jpg"
-                    },
+                        "file": "promised_neverland0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 15,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "MAPPA",
+                "avatar": "mappa.jpeg"
+            },
+            "likes": 670,
+            "anime": {
+                "nome": "Yuri on Ice",
+                "sinopse": "Um patinador japonês busca redenção e vitórias com a ajuda de seu treinador, Yuri Katsuki.",
+                "nota": 7.3,
+                "url": "https://www.crunchyroll.com/yuri-on-ice",
+                "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes1.jpg"
-                    },
+                        "file": "yuri_on_ice0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 16,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "Xebec",
+                "avatar": "xebec.jpeg"
+            },
+            "likes": 1530,
+            "anime": {
+                "nome": "Love Hina",
+                "sinopse": "Keitaro Urashima tenta entrar na universidade de Tóquio e gerenciar um dormitório cheio de garotas.",
+                "nota": 8.2,
+                "url": "https://www.crunchyroll.com/love-hina",
+                "blobs": [
                     {
                         "type": "image",
-                        "file": "shoes2.jpg"
+                        "file": "love_hina0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 17,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "Studio Deen",
+                "avatar": "deens.jpeg"
+            },
+            "likes": 230,
+            "anime": {
+                "nome": "Fruits Basket",
+                "sinopse": "Toru Honda descobre os segredos da família Soma, cujos membros se transformam em animais do zodíaco chinês.",
+                "nota": 6.4,
+                "url": "https://www.crunchyroll.com/fruits-basket",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "fruits_basket0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 18,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "P.A. Works",
+                "avatar": "p.works.jpeg"
+            },
+            "likes": 960,
+            "anime": {
+                "nome": "Angel Beats!",
+                "sinopse": "Após morrer, um grupo de jovens tenta encontrar a paz enquanto enfrentam desafios em uma escola sobrenatural.",
+                "nota": 8.9,
+                "url": "https://www.crunchyroll.com/angel-beats",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "angel_beats0.jpeg"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": 19,
+            "datetime": "2024-12-01T12:00-0500",
+            "estudio": {
+                "nome": "Studio Bones",
+                "avatar": "bones.jpeg"
+            },
+            "likes": 1710,
+            "anime": {
+                "nome": "Noragami",
+                "sinopse": "Yato, um deus menor, busca fama e seguidores enquanto ajuda a resolver os problemas dos humanos.",
+                "nota": 9.7,
+                "url": "https://www.crunchyroll.com/noragami",
+                "blobs": [
+                    {
+                        "type": "image",
+                        "file": "noragami0.jpeg"
                     }
                 ]
             }
