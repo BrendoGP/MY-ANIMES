@@ -262,8 +262,9 @@ class _DetalhesState extends State<Detalhes> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Row(children: [
           Row(children: [
-            Image.network(
-                'https://th.bing.com/th/id/OIP.Zl0PlmOMSSbHmP_OI9xZgAHaEK?rs=1&pid=ImgDetMain',
+            Image.network(_anime["estudio"]["avatar"].isNotEmpty
+                ? _anime["estudio"]["avatar"]
+                : "https://via.placeholder.com/100.png?text=Avatar+Indisponível",
                 width: 38),
             Padding(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
@@ -296,8 +297,9 @@ class _DetalhesState extends State<Detalhes> {
                   });
                 },
                 itemBuilder: (context, pagePosition) {
-                  return Image.network(
-                    'https://th.bing.com/th/id/OIP.ppfxOq0dwzZI5CP_idr2fQHaEn?rs=1&pid=ImgDetMain',
+                  return Image.network(_anime["anime"]["imagem"].isNotEmpty
+                ? _anime["anime"]["imagem"]
+                : "https://via.placeholder.com/300x200.png?text=Imagem+Indisponível",
                     fit: BoxFit.cover,
                   );
                 },
