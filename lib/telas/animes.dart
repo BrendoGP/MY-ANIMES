@@ -106,25 +106,27 @@ class _AnimesState extends State<Animes> {
             usuarioLogado
                 ? IconButton(
                     onPressed: () {
+                      Autenticador.logout().then((_){
                       setState(() {
                         estadoApp.onLogout();
                       });
 
                       Toast.show("Você não está mais conectado",
                           duration: Toast.lengthLong, gravity: Toast.bottom);
+                    });
                     },
                     icon: const Icon(Icons.logout))
                 : IconButton(
                     onPressed: () {
-                      Usuario usuario =
-                          Usuario("brendo gomes", "brendogomes@gmail.com");
-
+                      Autenticador.login().then((usuario) {
+                      
                       setState(() {
                         estadoApp.onLogin(usuario);
                       });
 
                       Toast.show("Você foi conectado com sucesso",
                           duration: Toast.lengthLong, gravity: Toast.bottom);
+                    });
                     },
                     icon: const Icon(Icons.login))
           ],

@@ -1,24 +1,35 @@
 // ignore_for_file: unnecessary_getters_setters
 
-class Usuario {
-  //variáveis
-  String? _nome;
-  String? _email;
-  
-  //construtor
-  Usuario(String? nome, String? email) {
-    _nome = nome;
-    _email = email;
+import 'package:aula/usuario.dart';
+
+class Autenticador {
+  static Future<Usuario> login() async {
+    // final gUser = await GoogleSignIn().signIn();
+    // final usuario = Usuario(gUser!.displayName, gUser.email);
+    final usuario = Usuario("Brendo Gomes", "brendo.bgp1@gmail.com");
+
+    return usuario;
   }
 
-  //getters & setters
-  String? get nome => _nome;
-  set nome(String? nome) {
-    _nome = nome;
+  static Future<Usuario?> recuperarUsuario() async {
+    // Usuario? usuario;
+
+    // final gSignIn = GoogleSignIn();
+    // if (await gSignIn.isSignedIn()) {
+    //   await gSignIn.signInSilently();
+
+    //   final gUser = gSignIn.currentUser;
+    //   if (gUser != null) {
+    //     usuario = Usuario(gUser.displayName, gUser.email);
+    //   }
+    // }
+    
+    final usuario = Usuario("Brendo Gomes", "brendo.bgp1@gmail.com");
+
+    return usuario;
   }
-  
-  String? get email => _email;
-  set email(String? email) {
-    _email = email;
+
+  static Future<void> logout() async {
+    // await GoogleSignIn().signOut();
   }
 }

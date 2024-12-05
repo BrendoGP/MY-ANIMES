@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_getters_setters
 
-import 'package:aula/autenticador.dart';
+import 'package:aula/usuario.dart';
 import 'package:flutter/material.dart';
 //import 'package:my_animes/autenticador.dart';
 

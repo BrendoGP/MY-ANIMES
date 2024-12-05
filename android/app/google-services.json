@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "241559167364",
+    "project_id": "my-animes-ca9d1",
+    "storage_bucket": "my-animes-ca9d1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241559167364:android:a6309f7b1f3474e5febdd1",
+        "android_client_info": {
+          "package_name": "com.example.aula"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241559167364-vm7csi01kdb8tojeipcj24gof7spdcsn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.aula",
+            "certificate_hash": "05de64449bc67208ebfe6e503f6cec088058b957"
+          }
+        },
+        {
+          "client_id": "241559167364-e3e93ur1scs2m25if6ak4knlmokvgmvf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB__mXfR-E2CYU9DDXufD0OpFmmOiC6hKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241559167364-e3e93ur1scs2m25if6ak4knlmokvgmvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
