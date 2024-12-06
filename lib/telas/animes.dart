@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flat_list/flat_list.dart';
 import 'package:toast/toast.dart';
 
+// Classe principal da tela de animes, configurada como um widget com estado.
 class Animes extends StatefulWidget {
   const Animes({super.key});
 
@@ -41,6 +42,7 @@ class _AnimesState extends State<Animes> {
     _lerFeedEstatico();
   }
 
+  // Carrega o feed estático de animes a partir de um arquivo JSON.
   Future<void> _lerFeedEstatico() async {
     final String conteudoJson =
         await rootBundle.loadString("lib/recursos/json/feed.json");
@@ -48,6 +50,7 @@ class _AnimesState extends State<Animes> {
     _carregarAnimes();
   }
 
+  // Filtra ou pagina os animes dependendo do estado do filtro.
   void _carregarAnimes() {
 
     setState(() { _carregando = true; });
@@ -74,6 +77,7 @@ class _AnimesState extends State<Animes> {
       
   }//_carregarAnime
 
+  // Atualiza a lista de animes reiniciando a paginação.
   Future<void> _atualizarAnimes() async {
     _animes = [];
     _proximaPagina = 1;
@@ -141,7 +145,7 @@ class _AnimesState extends State<Animes> {
 
               return _atualizarAnimes();
             },
-            onEndReached: () => _carregarAnimes(),
+            onEndReached: () => _carregarAnimes(), // !!!! lazy loading !!!!
             buildItem: (item, int indice) {
               return SizedBox(height: 400, child: AnimeCartao(anime: item));
             }));

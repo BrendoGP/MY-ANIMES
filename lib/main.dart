@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+// Classe principal do aplicativo, responsável por configurar o estado e tema.
 class App extends StatelessWidget {
   const App({super.key});
   @override
@@ -23,6 +24,7 @@ class App extends StatelessWidget {
   }
 }//App
 
+// funciona como a interface principal do aplicativo.
 class Tela extends StatefulWidget {
   const Tela({super.key});
   @override
