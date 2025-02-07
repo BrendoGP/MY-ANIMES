@@ -1,7 +1,8 @@
-import 'dart:convert';
+//import 'dart:convert';
+import 'package:aula/api/api.dart';
 import 'package:aula/estado.dart';
 //import 'package:my_animes/estado.dart';
-import 'package:flat_list/flat_list.dart';
+//import 'package:flat_list/flat_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
@@ -20,20 +21,26 @@ class Detalhes extends StatefulWidget {
 //verificar como esta a situação do Anime
 enum _EstadoAnime { naoVerificado, temAnime, semAnime }
 
-class _DetalhesState extends State<Detalhes> {
-  late dynamic _feedEstatico;
-  late dynamic _comentariosEstaticos;
+const TAMANHO_DA_PAGINA = 4;
 
-  _EstadoAnime _temAnime = _EstadoAnime.naoVerificado;
+class _DetalhesState extends State<Detalhes> {
+   _EstadoAnime _temAnime = _EstadoAnime.naoVerificado;
   late dynamic _anime;
+  int _ultimoComentario = 0x7FFFFFFFFFFFFFFF;
 
   List<dynamic> _comentarios = [];
-  bool _carregandoComentarios = false;
   bool _temComentarios = false;
 
-  late TextEditingController _controladorNovoComentario;
+  final TextEditingController _controladorNovoComentario =
+      TextEditingController();
+  final ScrollController _controladorListaAnimes = ScrollController();
+
   late PageController _controladorSlides;
   late int _slideSelecionado;
+
+  late ServicoAnimes _servicoAnimes;
+  late ServicoCurtidas _servicoCurtidas;
+  late ServicoComentarios _servicoComentarios;
 
   bool _curtiu = false;
 
@@ -43,10 +50,13 @@ class _DetalhesState extends State<Detalhes> {
 
     ToastContext().init(context);
 
-    _lerFeedEstatico();
-    _iniciarSlides();
+    _servicoAnimes = ServicoAnimes();
+    _servicoCurtidas = ServicoCurtidas();
+    _servicoComentarios = ServicoComentarios();
 
-    _controladorNovoComentario = TextEditingController();
+    _iniciarSlides();
+    _carregarAnime();
+    _carregarComentarios();
   }
 
   void _iniciarSlides() {
@@ -54,47 +64,48 @@ class _DetalhesState extends State<Detalhes> {
     _controladorSlides = PageController(initialPage: _slideSelecionado);
   }
 
-  Future<void> _lerFeedEstatico() async {
-    String conteudoJson =
-        await rootBundle.loadString("lib/recursos/json/feed.json");
-    _feedEstatico = await json.decode(conteudoJson);
-
-    conteudoJson =
-        await rootBundle.loadString("lib/recursos/json/comentarios.json");
-    _comentariosEstaticos = await json.decode(conteudoJson);
-
-    _carregarAnime();
-    _carregarComentarios();
-  }
-
 // Verifica se tem anime para carregar ou não
   void _carregarAnime() {
-    setState(() {
-      _anime = _feedEstatico['animes']
-          .firstWhere((produto) => produto["_id"] == estadoApp.idAnime);
+   _servicoAnimes.findAnime(estadoApp.idAnime).then((anime) {
+      _anime = anime;
 
-      _temAnime =
-          _anime != null ? _EstadoAnime.temAnime : _EstadoAnime.semAnime;
+      if (estadoApp.usuario != null) {
+        _servicoCurtidas
+            .curtiu(estadoApp.usuario!, estadoApp.idAnime)
+            .then((curtiu) {
+          setState(() {
+            _temAnime = _anime != null
+                ? _EstadoAnime.temAnime
+                : _EstadoAnime.semAnime;
+            _curtiu = curtiu;
+          });
+        });
+      } else {
+        setState(() {
+          _temAnime = _anime != null
+              ? _EstadoAnime.temAnime
+              : _EstadoAnime.semAnime;
+          _curtiu = false;
+        });
+      }
     });
   } //carregarAnime
 
 //Carregar comentários do anime
   void _carregarComentarios() {
-    setState(() {
-      _carregandoComentarios = true;
-    });
+    _servicoComentarios
+        .getComentarios(
+            estadoApp.idAnime, _ultimoComentario, TAMANHO_DA_PAGINA)
+        .then((comentarios) {
+      _temComentarios = comentarios.isNotEmpty;
 
-    var maisComentarios = [];
-    _comentariosEstaticos["comentarios"].where((item) {
-      return item["feed"] == estadoApp.idAnime;
-    }).forEach((item) {
-      maisComentarios.add(item);
-    });
+      if (_temComentarios) {
+        _ultimoComentario = comentarios.last['comentario_id'];
+      }
 
-    setState(() {
-      _carregandoComentarios = false;
-      _comentarios = maisComentarios;
-      _temComentarios = _comentarios.isNotEmpty;
+      setState(() {
+        _comentarios = comentarios;
+      });
     });
   } //carregarComentarios
 
@@ -141,120 +152,154 @@ class _DetalhesState extends State<Detalhes> {
   } // comentario inexistente
 
   Widget _exibirComentarios() {
-    return Expanded(
-        child: FlatList(
-      data: _comentarios,
-      loading: _carregandoComentarios,
-      buildItem: (item, index) {
-        String dataFormatada = DateFormat('dd/MM/yyyy HH:mm')
-            .format(DateTime.parse(item["datetime"]));
-        bool usuarioLogadoComentou = estadoApp.usuario != null &&
-            estadoApp.usuario!.email == item["user"]["email"];
+    return ListView.builder(
+            controller: _controladorListaAnimes,
+            scrollDirection: Axis.vertical,
+            physics: const AlwaysScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: _comentarios.length,
+            itemBuilder: (context, index) {
+              final comentario = _comentarios[index];
+              String dataFormatada = DateFormat('dd/MM/yyyy HH:mm')
+                  .format(DateTime.parse(comentario["data"]));
+              bool usuarioLogadoComentou = estadoApp.usuario != null &&
+                  estadoApp.usuario!.email == comentario["conta"];
 
-        return Dismissible(
-          key: Key(item["_id"].toString()),
-          direction: usuarioLogadoComentou
-              ? DismissDirection.endToStart
-              : DismissDirection.none,
-          background: Container(
-              alignment: Alignment.centerRight,
-              child: const Padding(
-                  padding: EdgeInsets.only(right: 12.0),
-                  child: Icon(Icons.delete, color: Colors.red))),
-          child: Card(
-              color: usuarioLogadoComentou ? Colors.green[100] : Colors.white,
-              child: Column(children: [
-                Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(item["content"],
-                            style: const TextStyle(fontSize: 12)))),
-                Padding(
-                    padding: const EdgeInsets.only(bottom: 6.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                            padding:
-                                const EdgeInsets.only(right: 10.0, left: 6.0),
-                            child: Text(
-                              dataFormatada,
-                              style: const TextStyle(fontSize: 12),
-                            )),
-                        Padding(
-                            padding: const EdgeInsets.only(right: 10.0),
-                            child: Text(
-                              item["user"]["nome"],
-                              style: const TextStyle(fontSize: 12),
-                            )),
-                      ],
-                    )),
-              ])),
-          onDismissed: (direction) {
-            if (direction == DismissDirection.endToStart) {
-              final comentario = item;
-              setState(() {
-                _comentarios.removeAt(index);
-              });
+              return SizedBox(
+                  height: 90,
+                  child: Dismissible(
+                    key: Key(comentario["comentario_id"].toString()),
+                    direction: usuarioLogadoComentou
+                        ? DismissDirection.endToStart
+                        : DismissDirection.none,
+                    background: Container(
+                        alignment: Alignment.centerRight,
+                        child: const Padding(
+                            padding: EdgeInsets.only(right: 12.0),
+                            child: Icon(Icons.delete, color: Colors.red))),
+                    child: Card(
+                        color: usuarioLogadoComentou
+                            ? Colors.green[100]
+                            : Colors.white,
+                        child: Column(children: [
+                          Padding(
+                              padding: const EdgeInsets.only(top: 6, left: 6),
+                              child: Container(
+                                  alignment: Alignment.topLeft,
+                                  child: Text(comentario["comentario"],
+                                      style: const TextStyle(fontSize: 12)))),
+                          const Spacer(),
+                          Padding(
+                              padding: const EdgeInsets.only(bottom: 6.0),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 10.0, left: 6.0),
+                                      child: Text(
+                                        dataFormatada,
+                                        style: const TextStyle(fontSize: 12),
+                                      )),
+                                  Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 10.0),
+                                      child: Text(
+                                        comentario["nome"],
+                                        style: const TextStyle(fontSize: 12),
+                                      )),
+                                ],
+                              )),
+                        ])),
+                    onDismissed: (direction) {
+                      if (direction == DismissDirection.endToStart) {
+                        setState(() {
+                          _comentarios.removeAt(index);
+                        });
 
-              showDialog(
-                  context: context,
-                  builder: (BuildContext contexto) {
-                    return AlertDialog(
-                      title: const Text("Deseja apagar o comentário?"),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              setState(() {
-                                _comentarios.insert(index, comentario);
-                              });
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext contexto) {
+                              return AlertDialog(
+                                title: const Text("Deseja apagar o comentário?",
+                                    style: TextStyle(fontSize: 14)),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          _comentarios.insert(
+                                              index, comentario);
+                                        });
 
-                              Navigator.of(contexto).pop();
-                            },
-                            child: const Text("NÃO")),
-                        TextButton(
-                            onPressed: () {
-                              setState(() {});
+                                        Navigator.of(contexto).pop();
+                                      },
+                                      child: const Text("NÃO",
+                                          style: TextStyle(fontSize: 14))),
+                                  TextButton(
+                                      onPressed: () {
+                                        _removerComentario(
+                                            comentario["comentario_id"]);
 
-                              Navigator.of(contexto).pop();
-                            },
-                            child: const Text("SIM"))
-                      ],
-                    );
-                  });
-            }
-          },
-        );
-      },
-    ));
+                                        Navigator.of(contexto).pop();
+                                      },
+                                      child: const Text("SIM",
+                                          style: TextStyle(fontSize: 14)))
+                                ],
+                              );
+                            });
+                      }
+                    },
+                  ));
+            }));
   }
 
+
+ Future<void> _atualizarComentarios() async {
+    _comentarios = [];
+    _ultimoComentario = 0;
+
+    _carregarComentarios();
+  } 
+
   void _adicionarComentario() {
-    String conteudo = _controladorNovoComentario.text.trim();
-    if (conteudo.isNotEmpty) {
-      final comentario = {
-        "content": conteudo,
-        "user": {
-          "nome": estadoApp.usuario!.nome,
-          "email": estadoApp.usuario!.email,
-        },
-        "datetime": DateTime.now().toString(),
-        "feed": estadoApp.idAnime
-      };
+     _servicoComentarios
+        .adicionar(estadoApp.idAnime, estadoApp.usuario!,
+            _controladorNovoComentario.text)
+        .then((resultado) {
+      if (resultado["situacao"] == "ok") {
+        Toast.show("comentário adicionado!",
+            duration: Toast.lengthLong, gravity: Toast.bottom);
 
-      setState(() {
-        _comentarios.insert(0, comentario);
-      });
+        _atualizarComentarios();
+      }
+    });
+  }// adicionar comentario
 
-      _controladorNovoComentario.clear();
-    } else {
-      Toast.show("Digite um comentário",
-          duration: Toast.lengthLong, gravity: Toast.bottom);
+  void _removerComentario(int idComentario) {
+    _servicoComentarios.remover(idComentario).then((resultado) {
+      if (resultado["situacao"] == "ok") {
+        Toast.show("comentário removido com sucesso!!",
+            duration: Toast.lengthLong, gravity: Toast.bottom);
+      }
+    });
+  }//remover comentario
+
+ List<String> _imagensDoSlide() {
+    List<String> imagens = [];
+
+    imagens.add(_anime["imagem"]);
+    if ((_anime["imagem"] as String).isNotEmpty) {
+      imagens.add(_anime["imagem"]);
     }
+    if ((_anime["imagem"] as String).isNotEmpty) {
+      imagens.add(_anime["imagem"]);
+    }
+
+    return imagens;
   }
 
   Widget _exibirAnime() {
     bool usuarioLogado = estadoApp.usuario != null;
+    final slides = _imagensDoSlide();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -262,14 +307,12 @@ class _DetalhesState extends State<Detalhes> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Row(children: [
           Row(children: [
-            Image.network(_anime["estudio"]["avatar"].isNotEmpty
-                ? _anime["estudio"]["avatar"]
-                : "https://via.placeholder.com/100.png?text=Avatar+Indisponível",
+            Image.network(formatarCaminhoArquivo(_anime["avatar"]),
                 width: 38),
             Padding(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
                 child: Text(
-                  _anime["estudio"]["nome"],
+                  _anime["estudio"],
                   style: const TextStyle(fontSize: 15),
                 ))
           ]),
@@ -289,7 +332,7 @@ class _DetalhesState extends State<Detalhes> {
             height: 230,
             child: Stack(children: [
               PageView.builder(
-                itemCount: 3,
+                itemCount: slides.length,
                 controller: _controladorSlides,
                 onPageChanged: (slide) {
                   setState(() {
@@ -297,9 +340,8 @@ class _DetalhesState extends State<Detalhes> {
                   });
                 },
                 itemBuilder: (context, pagePosition) {
-                  return Image.network(_anime["anime"]["imagem"].isNotEmpty
-                ? _anime["anime"]["imagem"]
-                : "https://via.placeholder.com/300x200.png?text=Imagem+Indisponível",
+                  return Image.network(
+                    formatarCaminhoArquivo(slides[pagePosition]),
                     fit: BoxFit.cover,
                   );
                 },
@@ -311,35 +353,50 @@ class _DetalhesState extends State<Detalhes> {
                         ? IconButton(
                             onPressed: () {
                               if (_curtiu) {
-                                setState(() {
-                                  _anime['likes'] = _anime['likes'] - 1;
+                                _servicoCurtidas
+                                    .descurtir(
+                                        estadoApp.usuario!, estadoApp.idAnime)
+                                    .then((resultado) {
+                                  if (resultado["situacao"] == "ok") {
+                                    Toast.show("avaliação removida",
+                                        duration: Toast.lengthLong,
+                                        gravity: Toast.bottom);
 
-                                  _curtiu = false;
+                                    setState(() {
+                                      _carregarAnime();
+                                    });
+                                  }
                                 });
                               } else {
-                                setState(() {
-                                  _anime['likes'] = _anime['likes'] + 1;
+                                _servicoCurtidas
+                                    .curtir(
+                                        estadoApp.usuario!, estadoApp.idAnime)
+                                    .then((resultado) {
+                                  if (resultado["situacao"] == "ok") {
+                                    Toast.show("obrigado pela sua avaliação",
+                                        duration: Toast.lengthLong,
+                                        gravity: Toast.bottom);
 
-                                  _curtiu = true;
+                                    setState(() {
+                                      _carregarAnime();
+                                    });
+                                  }
                                 });
-
-                                Toast.show("Anime adicionado aos Favoritos",
-                                    duration: Toast.lengthLong,
-                                    gravity: Toast.bottom);
                               }
                             },
                             icon: Icon(_curtiu
                                 ? Icons.favorite
                                 : Icons.favorite_border),
                             color: Colors.red,
-                            iconSize: 26)
+                            iconSize: 32)
                         : const SizedBox.shrink(),
                     IconButton(
                         onPressed: () {
                           final texto =
-                              '${_anime["anime"]["nome"]} disponível para assistir em: ${_anime["anime"]["url"]}';
+                              '${_anime["nome_anime"]}, Nota: ${_anime["nota"].toString()}';
 
-                          FlutterShare.share(title: "My Animes", text: texto);
+                          FlutterShare.share(
+                              title: "Meus Animes", text: texto);
                         },
                         icon: const Icon(Icons.share),
                         color: Colors.blue,
@@ -365,19 +422,19 @@ class _DetalhesState extends State<Detalhes> {
                 Padding(
                     padding: const EdgeInsets.all(6.0),
                     child: Text(
-                      _anime["anime"]["nome"],
+                      _anime["nome_anime"],
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 13),
                     )),
                 Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Text(_anime["anime"]["sinopse"],
+                    child: Text(_anime["sinopse"],
                         style: const TextStyle(fontSize: 12))),
                 Padding(
                     padding: const EdgeInsets.only(left: 8.0, bottom: 6.0),
                     child: Row(children: [
                       Text(
-                        "[${_anime["anime"]["nota"].toString()}]",
+                        "Nota: ${_anime["nota"].toString()}",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 12),
                       ),
@@ -392,7 +449,7 @@ class _DetalhesState extends State<Detalhes> {
                                   size: 18,
                                 ),
                                 Text(
-                                  _anime["likes"].toString(),
+                                  _anime["curtidas"].toString(),
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 12),
@@ -435,7 +492,6 @@ class _DetalhesState extends State<Detalhes> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     Widget detalhes = const SizedBox.shrink();

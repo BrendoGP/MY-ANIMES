@@ -1,3 +1,4 @@
+import 'package:aula/api/api.dart';
 import 'package:aula/estado.dart';
 import 'package:flutter/material.dart';
 
@@ -10,63 +11,48 @@ class AnimeCartao extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        estadoApp.mostrarDetalhes(anime["_id"]);
+        estadoApp.mostrarDetalhes(anime["anime_id"]);
       },
       child: Card(
         child: Column(children: [
-          // Verifica se a imagem está vazia e exibe uma padrão se necessário
-          Image.network(
-            anime["anime"]["imagem"].isNotEmpty
-                ? anime["anime"]["imagem"]
-                : "https://via.placeholder.com/300x200.png?text=Imagem+Indisponível",
-          ),
+  
+          Image.network(formatarCaminhoArquivo(anime["imagem"])),
           Row(children: [
-            // Verifica se o avatar está vazio e exibe um padrão se necessário
-            CircleAvatar(
-              backgroundColor: Colors.transparent,
-              backgroundImage: NetworkImage(
-                anime["estudio"]["avatar"].isNotEmpty
-                    ? anime["estudio"]["avatar"]
-                    : "https://via.placeholder.com/100.png?text=Avatar+Indisponível",
-              ),
-            ),
+              Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: CircleAvatar(
+                      backgroundColor: Colors.transparent,
+                      child: Image.network(
+                          formatarCaminhoArquivo(anime["avatar"])))),
             Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Text(
-                anime["estudio"]["nome"],
-                style: const TextStyle(fontSize: 15),
-              ),
-            ),
-          ]),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Text(
-              anime["anime"]["nome"],
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10, top: 5, bottom: 10),
-            child: Text(anime["anime"]["sinopse"]),
-          ),
-          const Spacer(),
-          Row(children: [
+                  padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
+                  child: Text(anime["estudio"],
+                      style: const TextStyle(fontSize: 15))),
+            ]),
             Padding(
-              padding: const EdgeInsets.only(left: 50, bottom: 30),
-              child: Text(
-                "Nota: ${anime['anime']['nota'].toString()}",
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+                padding: const EdgeInsets.all(10.0),
+                child: Text(anime["nome"],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 15))),
+            Padding(
+                padding:
+                    const EdgeInsets.only(left: 10.0, top: 5.0, bottom: 10.0),
+                child: Text(anime["sinopse"],
+                    style: const TextStyle(fontSize: 12))),
+            Row(children: [
+              Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text("Nota: ${anime["nota"].toString()}",
+                      style: const TextStyle(fontWeight: FontWeight.bold))),
+              Padding(
+                  padding: const EdgeInsets.only(left: 2.0),
+                  child: Row(children: [
+                    const Icon(Icons.favorite_rounded,
+                        color: Colors.red, size: 18),
+                    Text(anime["likes"].toString())
+                  ]))
+            ])
           ]),
-        ]),
-      ),
-    );
+        ));
   }
 }

@@ -1,4 +1,4 @@
-import 'dart:convert';
+//import 'dart:convert';
 import 'package:aula/autenticador.dart';
 import 'package:aula/componentes/cartaoanime.dart';
 import 'package:aula/estado.dart';
@@ -6,9 +6,11 @@ import 'package:aula/estado.dart';
 //import 'package:my_animes/componentes/cartaoanime.dart';
 //import 'package:my_animes/estado.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flat_list/flat_list.dart';
+//import 'package:flutter/services.dart';
+//import 'package:flat_list/flat_list.dart';
 import 'package:toast/toast.dart';
+
+import '../api/api.dart';
 
 // Classe principal da tela de animes, configurada como um widget com estado.
 class Animes extends StatefulWidget {
@@ -23,64 +25,65 @@ class Animes extends StatefulWidget {
 const int tamanhoPagina = 4;
 
 class _AnimesState extends State<Animes> {
-  late dynamic _feedEstatico;
+  
   List<dynamic> _animes = [];
 
-  int _proximaPagina = 1;
-  bool _carregando = false;
 
-  late TextEditingController _controladorFiltragem;
+  final ScrollController _controladorListaAnimes = ScrollController();
+  final TextEditingController _controladorDoFiltro = TextEditingController();
+
+  late DragStartDetails startVerticalDragDetails;
+  late DragUpdateDetails updateVerticalDragDetails;
+
   String _filtro = "";
+
+  late ServicoAnimes _servicoAnimes;
+  int _ultimoAnime = 0;
 
   @override
   void initState() {
     super.initState();
 
     ToastContext().init(context);
+    _servicoAnimes = ServicoAnimes();
 
-    _controladorFiltragem = TextEditingController();
-    _lerFeedEstatico();
+    _controladorListaAnimes.addListener(() {
+      if (_controladorListaAnimes.position.pixels == _controladorListaAnimes.position.maxScrollExtent) {
+          _carregarAnimes();}
+    });
+     _carregarAnimes();
+     _recuperarUsuario();
   }
 
-  // Carrega o feed estático de animes a partir de um arquivo JSON.
-  Future<void> _lerFeedEstatico() async {
-    final String conteudoJson =
-        await rootBundle.loadString("lib/recursos/json/feed.json");
-    _feedEstatico = await json.decode(conteudoJson);
-    _carregarAnimes();
+void _recuperarUsuario() {
+    Autenticador.recuperarUsuario().then((usuario) => estadoApp.onLogin(usuario!));
   }
 
-  // Filtra ou pagina os animes dependendo do estado do filtro.
+  // Filtra e carregar os animes.
   void _carregarAnimes() {
-
-    setState(() { _carregando = true; });
-    var maisAnimes = [];
-
-    if (_filtro.isNotEmpty) {
-        _feedEstatico["animes"].where((item) {
-        String nome = item["anime"]["nome"];
-
-        return nome.toLowerCase().contains(_filtro.toLowerCase());
-      }).forEach((item) { maisAnimes.add(item); });
-      } else {
-        maisAnimes = _animes;
-        final totalAnimesParaCarregar = _proximaPagina * tamanhoPagina;
-
-        if (_feedEstatico["animes"].length >= totalAnimesParaCarregar) {
-        maisAnimes = _feedEstatico["animes"].sublist(0, totalAnimesParaCarregar); }
-      }
-
-    setState(() {
-      _animes = maisAnimes;
-      _proximaPagina = _proximaPagina + 1;
-      _carregando = false; });
-      
-  }//_carregarAnime
+    _servicoAnimes
+        .getAnimes(_ultimoAnime, tamanhoPagina)
+        .then((animes) {
+      setState(() {
+        if (animes.isNotEmpty) {
+          _ultimoAnime = animes.last["anime_id"];
+        }
+        _animes.addAll(animes);
+      });
+    });
+  } //_carregarAnime
 
   // Atualiza a lista de animes reiniciando a paginação.
   Future<void> _atualizarAnimes() async {
     _animes = [];
-    _proximaPagina = 1;
+    _ultimoAnime = 0;
+    _controladorDoFiltro.text = "";
+    _filtro = "";
+    _carregarAnimes();
+  }
+
+  void _aplicarFiltro(String filtro) {
+    _filtro = filtro;
     _carregarAnimes();
   }
 
@@ -89,24 +92,20 @@ class _AnimesState extends State<Animes> {
     bool usuarioLogado = estadoApp.usuario != null;
 
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          actions: [
-            Expanded(
-                child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 10, bottom: 10, left: 60, right: 20),
-                    child: TextField(
-                      controller: _controladorFiltragem,
-                      onSubmitted: (descricao) {
-                        _filtro = descricao;
-
-                        _atualizarAnimes();
-                      },
-                      decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          suffixIcon: Icon(Icons.search)),
-                    ))),
+        appBar: AppBar(actions: [
+          Expanded(
+              child: Padding(
+                  padding: const EdgeInsets.only(
+                      top: 10, bottom: 10, left: 60, right: 20),
+                  child: TextField(
+                    controller: _controladorDoFiltro,
+                    onSubmitted: (filtro) {
+                      _aplicarFiltro(filtro);
+                    },
+                    decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        suffixIcon: Icon(Icons.search)),
+                  ))),
             usuarioLogado
                 ? IconButton(
                     onPressed: () {
@@ -135,19 +134,22 @@ class _AnimesState extends State<Animes> {
                     icon: const Icon(Icons.login))
           ],
         ),
-        body: FlatList(
-            data: _animes,
-            numColumns: 2,
-            loading: _carregando,
-            onRefresh: () {
-              _filtro = "";
-              _controladorFiltragem.clear();
-
-              return _atualizarAnimes();
-            },
-            onEndReached: () => _carregarAnimes(), // !!!! lazy loading !!!!
-            buildItem: (item, int indice) {
-              return SizedBox(height: 400, child: AnimeCartao(anime: item));
-            }));
+        body: RefreshIndicator(
+            color: Colors.blueAccent,
+            onRefresh: () => _atualizarAnimes(),
+            child: GridView.builder(
+                controller: _controladorListaAnimes,
+                scrollDirection: Axis.vertical,
+                physics: const AlwaysScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 2,
+                  childAspectRatio: 0.5,
+                ),
+                itemCount: _animes.length,
+                itemBuilder: (context, index) {
+                  return AnimeCartao(anime: _animes[index]);
+                })));
   }
 }

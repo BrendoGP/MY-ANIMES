@@ -44,9 +44,9 @@ class _TelaState extends State<Tela> {
     estadoApp = context.watch<EstadoApp>();
 
     Widget tela = const SizedBox.shrink();
-    if (estadoApp.condicaoApp == CondicaoApp.mostrandoAnimes) {
+    if (estadoApp.mostrandoAnimes()) {
       tela = const Animes();
-    } else if (estadoApp.condicaoApp == CondicaoApp.mostrandoDetalhes) {
+    } else if (estadoApp.mostrandoDetalhes()) {
       tela = const Detalhes();
     }
     return tela;
