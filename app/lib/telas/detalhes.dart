@@ -21,7 +21,7 @@ class Detalhes extends StatefulWidget {
 //verificar como esta a situação do Anime
 enum _EstadoAnime { naoVerificado, temAnime, semAnime }
 
-const TAMANHO_DA_PAGINA = 4;
+const TAMANHO_DA_PAGINA = 5;
 
 class _DetalhesState extends State<Detalhes> {
    _EstadoAnime _temAnime = _EstadoAnime.naoVerificado;
@@ -249,7 +249,7 @@ class _DetalhesState extends State<Detalhes> {
                       }
                     },
                   ));
-            }));
+            });
   }
 
 

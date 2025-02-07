@@ -35,6 +35,7 @@ class _AnimesState extends State<Animes> {
   late DragStartDetails startVerticalDragDetails;
   late DragUpdateDetails updateVerticalDragDetails;
 
+  // ignore: unused_field
   String _filtro = "";
 
   late ServicoAnimes _servicoAnimes;
