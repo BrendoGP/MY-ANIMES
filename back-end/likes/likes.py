@@ -24,13 +24,13 @@ def get_conexao_com_bd():
 def get_info():
     return jsonify(descricao = DESCRICAO, versao = VERSAO)
 
-@servico.get("/likes_por_produto/<int:produto_id>")
-def get_likes_por_produto(produto_id):
+@servico.get("/likes_por_anime/<int:anime_id>")
+def get_likes_por_anime(anime_id):
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor(dictionary=True)
     cursor.execute("SELECT count(*) as quantidade " +  
         "FROM likes " +
-        "WHERE likes.feed = " + str(produto_id)
+        "WHERE likes.feed = " + str(anime_id)
     )
     likes = cursor.fetchone()
 
@@ -63,7 +63,7 @@ def curtir(conta, id_do_feed):
         conexao.commit()
     except:
         conexao.rollback()
-        resultado = jsonify(situacao = "erro", erro = "erro curtindo o produto")
+        resultado = jsonify(situacao = "erro", erro = "erro ao curtir o anime !!")
 
     conexao.close()
 
@@ -80,7 +80,7 @@ def descurtir(conta, id_do_feed):
         conexao.commit()
     except:
         conexao.rollback()
-        resultado = jsonify(situacao = "erro", erro = "erro descurtindo o produto")
+        resultado = jsonify(situacao = "erro", erro = "erro ao descurtir o anime !!")
 
     conexao.close()
 

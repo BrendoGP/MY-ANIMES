@@ -26,15 +26,15 @@ def get_conexao_com_bd():
 def get_info():
     return jsonify(descricao = DESCRICAO, versao = VERSAO)
 
-@servico.get("/comentarios/<int:produto>/<int:ultimo_comentario>/<int:tamanho_pagina>")
-def get_comentarios(produto, ultimo_comentario, tamanho_pagina):
+@servico.get("/comentarios/<int:anime>/<int:ultimo_comentario>/<int:tamanho_pagina>")
+def get_comentarios(anime, ultimo_comentario, tamanho_pagina):
     comentarios = []
 
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor(dictionary=True)
-    cursor.execute("SELECT id as comentario_id, feed as produto_id, comentario, nome, conta, DATE_FORMAT(data, '%Y-%m-%d %H:%i') as data " +
+    cursor.execute("SELECT id as comentario_id, feed as anime_id, comentario, nome, conta, DATE_FORMAT(data, '%Y-%m-%d %H:%i') as data " +
                    "FROM comentarios " +
-                   "WHERE feed = " + str(produto) + " AND id < " + str(ultimo_comentario) + " ORDER BY comentario_id DESC, data DESC " +
+                   "WHERE feed = " + str(anime) + " AND id < " + str(ultimo_comentario) + " ORDER BY comentario_id DESC, data DESC " +
                    "LIMIT " + str(tamanho_pagina))
     comentarios = cursor.fetchall()
     conexao.close()
@@ -42,15 +42,15 @@ def get_comentarios(produto, ultimo_comentario, tamanho_pagina):
     return jsonify(comentarios)
 
 
-@servico.post("/adicionar/<int:produto>/<string:nome>/<string:conta>/<string:comentario>")
-def add_comentario(produto, nome, conta, comentario):
+@servico.post("/adicionar/<int:anime>/<string:nome>/<string:conta>/<string:comentario>")
+def add_comentario(anime, nome, conta, comentario):
     resultado = jsonify(situacao = "ok", erro = "")
 
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor()
     try:
         cursor.execute(
-            f"INSERT INTO comentarios(feed, nome, conta, comentario, data) VALUES({produto}, '{nome}', '{conta}', '{comentario}', NOW())")
+            f"INSERT INTO comentarios(feed, nome, conta, comentario, data) VALUES({anime}, '{nome}', '{conta}', '{comentario}', NOW())")
         conexao.commit()
     except:
         conexao.rollback()
@@ -80,4 +80,4 @@ def remover_comentario(comentario_id):
     return resultado
 
 if __name__ == "__main__":
-    servico.run(host="0.0.0.0", debug=True)
+    servico.run(host = "0.0.0.0", debug = True)

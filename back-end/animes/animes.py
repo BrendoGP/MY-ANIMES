@@ -23,9 +23,9 @@ def get_conexao_com_bd():
 
     return conexao
 
-URL_LIKES = "http://likes:5000/likes_por_produto/"
-def get_quantidade_de_likes(produto_id):
-    url = f"{URL_LIKES}{produto_id}"
+URL_LIKES = "http://likes:5000/likes_por_anime/"
+def get_quantidade_de_likes(anime_id):
+    url = f"{URL_LIKES}{anime_id}"
     resposta = urlopen(url)
     resposta = resposta.read()
     resposta = json.loads(resposta)
@@ -36,79 +36,79 @@ def get_quantidade_de_likes(produto_id):
 def get_info():
     return jsonify(descricao = DESCRICAO, versao = VERSAO)
 
-@servico.get("/animes/<int:ultimo_produto>/<int:tamanho_da_pagina>")
-def get_animes(ultimo_produto, tamanho_da_pagina):
+@servico.get("/animes/<int:ultimo_anime>/<int:tamanho_da_pagina>")
+def get_animes(ultimo_anime, tamanho_da_pagina):
     animes = []
 
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor(dictionary=True)
     cursor.execute(
-        "SELECT feeds.id as produto_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
-        "empresas.id as empresa_id, empresas.nome as nome_empresa, empresas.avatar, animes.nome as nome_produto, animes.descricao, FORMAT(animes.preco, 2) as preco, " +
-        "animes.url, animes.imagem1, IFNULL(animes.imagem2, '') as imagem2, IFNULL(animes.imagem3, '') as imagem3 " +
-        "FROM feeds, animes, empresas " +
-        "WHERE animes.id = feeds.produto " +
-        "AND empresas.id = animes.empresa " +
-        "AND feeds.id > " + str(ultimo_produto) + " ORDER BY produto_id ASC, data DESC " +
+        "SELECT feeds.id as anime_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
+        "estudio.id as estudio_id, estudio.nome as nome_estudio, estudio.avatar, animes.nome as nome_anime, animes.sinopse, animes.nota as nota, " +
+        "animes.url, animes.imagem" +
+        "FROM feeds, animes, estudio " +
+        "WHERE animes.id = feeds.anime " +
+        "AND estudio.id = animes.estudio " +
+        "AND feeds.id > " + str(ultimo_anime) + " ORDER BY anime_id ASC, data DESC " +
         "LIMIT " + str(tamanho_da_pagina)
     )
     animes = cursor.fetchall()
     if animes:
-        for produto in animes:
-            produto["likes"] = get_quantidade_de_likes(produto["produto_id"])
+        for anime in animes:
+            anime["likes"] = get_quantidade_de_likes(anime["anime_id"])
 
     conexao.close()
 
     return jsonify(animes)
 
-@servico.get("/animes/<int:ultimo_feed>/<int:tamanho_da_pagina>/<string:nome_do_produto>")
-def find_animes(ultimo_feed, tamanho_da_pagina, nome_do_produto):
+@servico.get("/animes/<int:ultimo_feed>/<int:tamanho_da_pagina>/<string:nome_do_anime>")
+def find_animes(ultimo_feed, tamanho_da_pagina, nome_do_anime):
     animes = []
 
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor(dictionary=True)
     cursor.execute(
-        "select feeds.id as produto_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
-        "empresas.id as empresa_id, empresas.nome as nome_empresa, empresas.avatar, animes.nome as nome_produto, animes.descricao, FORMAT(animes.preco, 2) as preco, " +
-        "animes.url, animes.imagem1, IFNULL(animes.imagem2, '') as imagem2, IFNULL(animes.imagem3, '') as imagem3 " +
-        "FROM feeds, animes, empresas " +
-        "WHERE animes.id = feeds.produto " +
-        "AND empresas.id = animes.empresa " +
-        "AND animes.nome LIKE '%" + nome_do_produto + "%' "  +
-        "AND feeds.id > " + str(ultimo_feed) + " ORDER BY produto_id ASC, data DESC " +
+        "select feeds.id as anime_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
+        "estudio.id as estudio_id, estudio.nome as nome_estudio, estudio.avatar, animes.nome as nome_anime, animes.sinopse, animes.nota as nota, " +
+        "animes.url, animes.imagem" +
+        "FROM feeds, animes, estudio " +
+        "WHERE animes.id = feeds.anime " +
+        "AND estudio.id = animes.estudio " +
+        "AND animes.nome LIKE '%" + nome_do_anime + "%' "  +
+        "AND feeds.id > " + str(ultimo_feed) + " ORDER BY anime_id ASC, data DESC " +
         "LIMIT " + str(tamanho_da_pagina)
     )
     animes = cursor.fetchall()
     if animes:
-        for produto in animes:
-            produto["curtidas"] = get_quantidade_de_likes(produto['produto_id'])
+        for anime in animes:
+            anime["curtidas"] = get_quantidade_de_likes(anime['anime_id'])
 
     conexao.close()
 
     return jsonify(animes)
 
-@servico.get("/produto/<int:id>")
-def find_produto(id):
-    produto = {}
+@servico.get("/anime/<int:id>")
+def find_anime(id):
+    anime = {}
 
     conexao = get_conexao_com_bd()
     cursor = conexao.cursor(dictionary=True)
     cursor.execute(
-        "select feeds.id as produto_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
-        "empresas.id as empresa_id, empresas.nome as nome_empresa, empresas.avatar, animes.nome as nome_produto, animes.descricao, FORMAT(animes.preco, 2) as preco, " +
-        "animes.url, animes.imagem1, IFNULL(animes.imagem2, '') as imagem2, IFNULL(animes.imagem3, '') as imagem3 " +
-        "FROM feeds, animes, empresas " +
-        "WHERE animes.id = feeds.produto " +
-        "AND empresas.id = animes.empresa " +
+        "select feeds.id as anime_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
+        "estudio.id as estudio_id, estudio.nome as nome_estudio, estudio.avatar, animes.nome as nome_anime, animes.sinopse, animes.nota as nota, " +
+        "animes.url, animes.imagem" +
+        "FROM feeds, animes, estudio " +
+        "WHERE animes.id = feeds.anime " +
+        "AND estudio.id = animes.estudio "
         "AND feeds.id = " + str(id)
     )
-    produto = cursor.fetchone()
-    if produto:
-        produto["curtidas"] = get_quantidade_de_likes(id)
+    anime = cursor.fetchone()
+    if anime:
+        anime["curtidas"] = get_quantidade_de_likes(id)
 
     conexao.close()
 
-    return jsonify(produto)
+    return jsonify(anime)
 
 
 if __name__ == "__main__":
