@@ -20,9 +20,9 @@ class ServicoAnimes {
   Future<List<dynamic>> getAnimes(int ultimoId, int tamanhoPagina) async {
     final resposta =
         await http.get(Uri.parse('$URL_ANIMES/$ultimoId/$tamanhoPagina'));
-    if (resposta.statusCode != 200) {
-      throw Exception('Erro ao buscar animes !!');
-    }
+     if (resposta.statusCode != 200) {
+       throw Exception('Erro ao buscar animes !!');
+     }
 
     return jsonDecode(resposta.body);
   }

@@ -44,14 +44,14 @@ LOCK TABLES `comentarios` WRITE;
 INSERT INTO `comentarios` VALUES (1,
 'teste',
 1,
-'Brendo Gomes',
-'brendogomes@gmail.com',
+'teste nome',
+'teste email',
 '2024-12-28 21:12:05');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `empresas`
+-- Table structure for table `estudio`
 --
 
 DROP TABLE IF EXISTS `estudio`;
@@ -66,11 +66,11 @@ CREATE TABLE `estudio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `empresas`
+-- Dumping data for table `estudio`
 --
 
 LOCK TABLES `estudio` WRITE;
-/*!40000 ALTER TABLE `empresas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `estudio` DISABLE KEYS */;
 INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"),
             (2,"MAPPA","https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"),
             (3,"Studio Bones","https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"),
@@ -87,7 +87,7 @@ INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic
             (14,"Xebec","https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"),
             (15,"Studio Deen","https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"),
             (16,"P.A. Works","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s");
-/*!40000 ALTER TABLE `empresas` ENABLE KEYS */;
+/*!40000 ALTER TABLE `estudio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -151,7 +151,7 @@ INSERT INTO `likes` VALUES (8,1,'brendogomes@gmail.com');
 UNLOCK TABLES;
 
 --
--- Table structure for table `produtos`
+-- Table structure for table `animes`
 --
 
 DROP TABLE IF EXISTS `animes`;
@@ -172,11 +172,11 @@ CREATE TABLE `animes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `produtos`
+-- Dumping data for table `animes`
 --
 
 LOCK TABLES `animes` WRITE;
-/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `animes` DISABLE KEYS */;
 INSERT INTO `animes` VALUES
 (1,'Demon Slayer: Kimetsu no Yaiba', 'Tanjiro Kamado embarca em uma jornada para salvar sua irmã Nezuko e derrotar os demônios.', 9.8, 'https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5f56fe0b6b40c3.75541837.jpg%3FlastEdited%3D1599536658%3Fo%3Dfeed&w=250&h=300&f=webp',1),
 (2,'Jujutsu Kaisen', 'Yuji Itadori se junta a uma escola de feiticeiros para combater maldições perigosas.', 9.5, 'https://www.crunchyroll.com/jujutsu-kaisen', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fdev-beta.quizur.com%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagens%2F%2F20085070%2F527d4851-96ef-4d21-9bd9-3a0ae4898e3d.png%3Fo%3Dfeed&w=250&h=300&f=webp',2),
@@ -198,7 +198,7 @@ INSERT INTO `animes` VALUES
 (18,'Fruits Basket', 'Toru Honda descobre os segredos da família Soma, cujos membros se transformam em animais do zodíaco chinês.', 6.4, 'https://www.crunchyroll.com/fruits-basket', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg643dc5878081c1.82918645.jpg%3FlastEdited%3D1681769867%3Fo%3Dfeed&w=250&h=300&f=webp',3),
 (19,'Angel Beats!', 'Após morrer, um grupo de jovens tenta encontrar a paz enquanto enfrentam desafios em uma escola sobrenatural.', 8.9, 'https://www.crunchyroll.com/angel-beats', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fstatic.quizur.com%2Fi%2Fb%2F574b5467a78b09.3975851913322191-138516956561315-2742448555925565955-n.jpg%3Fo%3Dfeed&w=250&h=300&f=webp',8),
 (20,'Noragami', 'Yato, um deus menor, busca fama e seguidores enquanto ajuda a resolver os problemas dos humanos.', 9.7, 'https://www.crunchyroll.com/noragami', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fstatic.quizur.com%2Fi%2Fb%2F58e9b3ba6e20d7.6316032958e9b3ba5bc9b0.10101485.jpg%3Fo%3Dfeed&w=250&h=300&f=webp',16);
-/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+/*!40000 ALTER TABLE `animes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -210,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-16 21:48:40
+-- Dump completed on 2024-12-26 21:48:40
