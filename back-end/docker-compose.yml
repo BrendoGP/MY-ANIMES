@@ -10,6 +10,9 @@ services:
     command: python3 /servico/animes.py
     ports:
       - "5001:5000"
+    depends_on:
+      - banco
+
   comentarios:
     build: ./dockerfiles/python
     container_name: comentarios
@@ -20,6 +23,9 @@ services:
     command: python3 /servico/comentarios.py
     ports:
       - "5002:5000"
+    depends_on:
+      - banco
+
   likes:
     build: ./dockerfiles/python
     container_name: likes
@@ -30,6 +36,9 @@ services:
     command: python3 /servico/likes.py
     ports:
       - "5003:5000"
+    depends_on:
+      - banco
+
   banco:
     image: mysql
     container_name: banco
@@ -39,6 +48,8 @@ services:
       - "5004:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=animes
+
   arquivos:
     build: ./dockerfiles/nginx
     container_name: arquivos
@@ -47,5 +58,5 @@ services:
     volumes:
       - ./imagens:/usr/share/nginx/html
     ports:
-    - "5005:80"
+      - "5005:80"
 
