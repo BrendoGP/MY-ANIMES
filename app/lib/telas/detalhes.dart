@@ -97,8 +97,7 @@ class _DetalhesState extends State<Detalhes> {
         .getComentarios(estadoApp.idAnime, _ultimoComentario, TAMANHO_DA_PAGINA)
         .then((comentarios) {
       _temComentarios = comentarios.isNotEmpty;
-      print('###############');
-      print(_temComentarios);
+      
       if (_temComentarios) {
         _ultimoComentario = comentarios.last['comentario_id'];
       }
