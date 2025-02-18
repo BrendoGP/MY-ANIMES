@@ -45,7 +45,7 @@ def get_animes(ultimo_anime, tamanho_da_pagina):
     animes = []
 
     conexao = get_conexao_com_bd()
-    cursor = conexao.cursor(dictionary=True)
+    cursor = conexao.cursor(dictionary = True)
     cursor.execute(
         "SELECT feeds.id as anime_id, DATE_FORMAT(feeds.data, '%Y-%m-%d %H:%i') as data, " +
         "estudio.id as estudio_id, estudio.nome as nome_estudio, estudio.avatar, animes.nome as nome_anime, animes.sinopse, animes.nota as nota, " +

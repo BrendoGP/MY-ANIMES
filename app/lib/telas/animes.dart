@@ -28,7 +28,6 @@ class _AnimesState extends State<Animes> {
   
   List<dynamic> _animes = [];
 
-
   final ScrollController _controladorListaAnimes = ScrollController();
   final TextEditingController _controladorDoFiltro = TextEditingController();
 
@@ -49,22 +48,23 @@ class _AnimesState extends State<Animes> {
     _servicoAnimes = ServicoAnimes();
 
     _controladorListaAnimes.addListener(() {
-      if (_controladorListaAnimes.position.pixels == _controladorListaAnimes.position.maxScrollExtent) {
-          _carregarAnimes();}
+      if (_controladorListaAnimes.position.pixels ==
+          _controladorListaAnimes.position.maxScrollExtent) {
+        _carregarAnimes();
+      }
     });
-     _carregarAnimes();
-     _recuperarUsuario();
+    _carregarAnimes();
+    _recuperarUsuario();
   }
 
-void _recuperarUsuario() {
-    Autenticador.recuperarUsuario().then((usuario) => estadoApp.onLogin(usuario!));
+  void _recuperarUsuario() {
+    Autenticador.recuperarUsuario()
+        .then((usuario) => estadoApp.onLogin(usuario!));
   }
 
   // Filtra e carregar os animes.
   void _carregarAnimes() {
-    _servicoAnimes
-        .getAnimes(_ultimoAnime, tamanhoPagina)
-        .then((animes) {
+    _servicoAnimes.getAnimes(_ultimoAnime, tamanhoPagina).then((animes) {
       setState(() {
         if (animes.isNotEmpty) {
           _ultimoAnime = animes.last["anime_id"];
@@ -93,44 +93,44 @@ void _recuperarUsuario() {
     bool usuarioLogado = estadoApp.usuario != null;
 
     return Scaffold(
-        appBar: AppBar(actions: [
-          Expanded(
-              child: Padding(
-                  padding: const EdgeInsets.only(
-                      top: 10, bottom: 10, left: 60, right: 20),
-                  child: TextField(
-                    controller: _controladorDoFiltro,
-                    onSubmitted: (filtro) {
-                      _aplicarFiltro(filtro);
-                    },
-                    decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        suffixIcon: Icon(Icons.search)),
-                  ))),
+        appBar: AppBar(
+          actions: [
+            Expanded(
+                child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 10, bottom: 10, left: 60, right: 20),
+                    child: TextField(
+                      controller: _controladorDoFiltro,
+                      onSubmitted: (filtro) {
+                        _aplicarFiltro(filtro);
+                      },
+                      decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          suffixIcon: Icon(Icons.search)),
+                    ))),
             usuarioLogado
                 ? IconButton(
                     onPressed: () {
-                      Autenticador.logout().then((_){
-                      setState(() {
-                        estadoApp.onLogout();
-                      });
+                      Autenticador.logout().then((_) {
+                        setState(() {
+                          estadoApp.onLogout();
+                        });
 
-                      Toast.show("Você não está mais conectado",
-                          duration: Toast.lengthLong, gravity: Toast.bottom);
-                    });
+                        Toast.show("Você não está mais conectado",
+                            duration: Toast.lengthLong, gravity: Toast.bottom);
+                      });
                     },
                     icon: const Icon(Icons.logout))
                 : IconButton(
                     onPressed: () {
                       Autenticador.login().then((usuario) {
-                      
-                      setState(() {
-                        estadoApp.onLogin(usuario);
-                      });
+                        setState(() {
+                          estadoApp.onLogin(usuario);
+                        });
 
-                      Toast.show("Você foi conectado com sucesso",
-                          duration: Toast.lengthLong, gravity: Toast.bottom);
-                    });
+                        Toast.show("Você foi conectado com sucesso",
+                            duration: Toast.lengthLong, gravity: Toast.bottom);
+                      });
                     },
                     icon: const Icon(Icons.login))
           ],
