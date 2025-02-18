@@ -15,6 +15,54 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP TABLE IF EXISTS `animes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `animes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `sinopse` varchar(610) NOT NULL,
+  `nota` decimal(3,1) NOT NULL,
+  `url` varchar(1020) NOT NULL,
+  `imagem` varchar(255) NOT NULL,
+  `estudio` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_animes_estudio_idx` (`estudio`),
+  CONSTRAINT `fk_animes_estudio` FOREIGN KEY (`estudio`) REFERENCES `estudio` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `animes`
+--
+
+LOCK TABLES `animes` WRITE;
+/*!40000 ALTER TABLE `animes` DISABLE KEYS */;
+
+--
+-- Table structure for table `feeds`
+--
+
+DROP TABLE IF EXISTS `feeds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `feeds` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `data` datetime NOT NULL,
+  `anime` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_feeds_animes_idx` (`anime`),
+  CONSTRAINT `fk_feeds_animes` FOREIGN KEY (`anime`) REFERENCES `animes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `feeds`
+--
+
+LOCK TABLES `feeds` WRITE;
+/*!40000 ALTER TABLE `feeds` DISABLE KEYS */;
+
 --
 -- Table structure for table `comentarios`
 --
@@ -41,14 +89,6 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` VALUES (1,
-'teste',
-1,
-'teste nome',
-'teste email',
-'2024-12-28 21:12:05');
-/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `estudio`
@@ -71,57 +111,6 @@ CREATE TABLE `estudio` (
 
 LOCK TABLES `estudio` WRITE;
 /*!40000 ALTER TABLE `estudio` DISABLE KEYS */;
-INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"),
-            (2,"MAPPA","https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"),
-            (3,"Studio Bones","https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"),
-            (4,"Kyoto Animation","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdnE7e_KxTI9nR62ZUH0oSfI_t2I_bJ5UYQ&s"),
-            (5,"Toei Animation","https://www.nicepng.com/png/detail/315-3153350_toei-animation-toei-animation-logo-png.png"),
-            (6,"Studio Pierrot","https://i.pinimg.com/originals/33/15/38/331538b84919881127b9f606f23e471c.png"),
-            (7,"Madhouse","https://iconape.com/wp-content/png_logo_vector/madhouse-studio-logo.png"),
-            (8,"White Fox","https://hyphen.cc/works/1010_whitefox_logo.gif"),
-            (9,"Sunrise","https://img.freepik.com/vetores-premium/resumo-sun-logo-vintage-sun-icon-com-raios-isolados-no-fundo-branco-utilizavel-para-logotipos-de-negocios-e-natureza-elemento-de-modelo-de-design-de-logotipo-de-vetor-plana_393879-336.jpg"),
-            (10,"Production I.G","https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"),
-            (11,"Studio Ghibli","https://e7.pngegg.com/pngimages/426/435/png-clipart-ghibli-museum-catbus-studio-ghibli-my-neighbor-totoro-chihiro-ghibli-museum-catbus-thumbnail.png"),
-            (12,"Silver Link","https://static.wixstatic.com/media/d3fb2b_8d32b0e6d0714e6fb1b32eb4749814ca~mv2.png/v1/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Silver%20Link%20Logo.png"),
-            (13,"A-1 Pictures","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A-1_Pictures_Logo.svg/512px-A-1_Pictures_Logo.svg.png"),
-            (14,"Xebec","https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"),
-            (15,"Studio Deen","https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"),
-            (16,"P.A. Works","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s");
-/*!40000 ALTER TABLE `estudio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `feeds`
---
-
-DROP TABLE IF EXISTS `feeds`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `feeds` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `data` datetime NOT NULL,
-  `anime` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_feeds_animes_idx` (`anime`),
-  CONSTRAINT `fk_feeds_animes` FOREIGN KEY (`anime`) REFERENCES `animes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `feeds`
---
-
-LOCK TABLES `feeds` WRITE;
-/*!40000 ALTER TABLE `feeds` DISABLE KEYS */;
-INSERT INTO `feeds` VALUES (1,'2024-12-22 21:21:11',1),
-(2,'2024-12-22 21:21:11',2),
-(3,'2024-04-22 21:21:11',3),
-(4,'2024-04-22 21:21:11',4),
-(5,'2024-04-22 21:21:11',5),
-(6,'2024-04-22 21:21:11',6),
-(7,'2024-04-22 21:21:11',7);
-/*!40000 ALTER TABLE `feeds` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `likes`
@@ -146,37 +135,12 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
-INSERT INTO `likes` VALUES (8,1,'brendogomes@gmail.com');
-/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `animes`
 --
 
-DROP TABLE IF EXISTS `animes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `animes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `sinopse` varchar(610) NOT NULL,
-  `nota` decimal(3,1) NOT NULL,
-  `url` varchar(1020) NOT NULL,
-  `imagem` varchar(255) NOT NULL,
-  `estudio` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_animes_estudio_idx` (`estudio`),
-  CONSTRAINT `fk_animes_estudio` FOREIGN KEY (`estudio`) REFERENCES `estudio` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `animes`
---
-
-LOCK TABLES `animes` WRITE;
-/*!40000 ALTER TABLE `animes` DISABLE KEYS */;
 INSERT INTO `animes` VALUES
 (1,'Demon Slayer: Kimetsu no Yaiba', 'Tanjiro Kamado embarca em uma jornada para salvar sua irmã Nezuko e derrotar os demônios.', 9.8, 'https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5f56fe0b6b40c3.75541837.jpg%3FlastEdited%3D1599536658%3Fo%3Dfeed&w=250&h=300&f=webp',1),
 (2,'Jujutsu Kaisen', 'Yuji Itadori se junta a uma escola de feiticeiros para combater maldições perigosas.', 9.5, 'https://www.crunchyroll.com/jujutsu-kaisen', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fdev-beta.quizur.com%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fimagens%2F%2F20085070%2F527d4851-96ef-4d21-9bd9-3a0ae4898e3d.png%3Fo%3Dfeed&w=250&h=300&f=webp',2),
@@ -200,6 +164,50 @@ INSERT INTO `animes` VALUES
 (20,'Noragami', 'Yato, um deus menor, busca fama e seguidores enquanto ajuda a resolver os problemas dos humanos.', 9.7, 'https://www.crunchyroll.com/noragami', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fstatic.quizur.com%2Fi%2Fb%2F58e9b3ba6e20d7.6316032958e9b3ba5bc9b0.10101485.jpg%3Fo%3Dfeed&w=250&h=300&f=webp',16);
 /*!40000 ALTER TABLE `animes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+INSERT INTO `feeds` VALUES (1,'2024-12-22 21:21:11',1),
+(2,'2024-12-22 21:21:11',2),
+(3,'2024-04-22 21:21:11',3),
+(4,'2024-04-22 21:21:11',4),
+(5,'2024-04-22 21:21:11',5),
+(6,'2024-04-22 21:21:11',6),
+(7,'2024-04-22 21:21:11',7);
+/*!40000 ALTER TABLE `feeds` ENABLE KEYS */;
+UNLOCK TABLES;
+
+INSERT INTO `comentarios` VALUES (1,
+'teste',
+1,
+'teste nome',
+'teste email',
+'2024-12-28 21:12:05');
+/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"),
+            (2,"MAPPA","https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"),
+            (3,"Studio Bones","https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"),
+            (4,"Kyoto Animation","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdnE7e_KxTI9nR62ZUH0oSfI_t2I_bJ5UYQ&s"),
+            (5,"Toei Animation","https://www.nicepng.com/png/detail/315-3153350_toei-animation-toei-animation-logo-png.png"),
+            (6,"Studio Pierrot","https://i.pinimg.com/originals/33/15/38/331538b84919881127b9f606f23e471c.png"),
+            (7,"Madhouse","https://iconape.com/wp-content/png_logo_vector/madhouse-studio-logo.png"),
+            (8,"White Fox","https://hyphen.cc/works/1010_whitefox_logo.gif"),
+            (9,"Sunrise","https://img.freepik.com/vetores-premium/resumo-sun-logo-vintage-sun-icon-com-raios-isolados-no-fundo-branco-utilizavel-para-logotipos-de-negocios-e-natureza-elemento-de-modelo-de-design-de-logotipo-de-vetor-plana_393879-336.jpg"),
+            (10,"Production I.G","https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"),
+            (11,"Studio Ghibli","https://e7.pngegg.com/pngimages/426/435/png-clipart-ghibli-museum-catbus-studio-ghibli-my-neighbor-totoro-chihiro-ghibli-museum-catbus-thumbnail.png"),
+            (12,"Silver Link","https://static.wixstatic.com/media/d3fb2b_8d32b0e6d0714e6fb1b32eb4749814ca~mv2.png/v1/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Silver%20Link%20Logo.png"),
+            (13,"A-1 Pictures","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A-1_Pictures_Logo.svg/512px-A-1_Pictures_Logo.svg.png"),
+            (14,"Xebec","https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"),
+            (15,"Studio Deen","https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"),
+            (16,"P.A. Works","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s");
+/*!40000 ALTER TABLE `estudio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+INSERT INTO `likes` VALUES (8,1,'brendogomes@gmail.com');
+/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
