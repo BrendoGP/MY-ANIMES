@@ -7,7 +7,7 @@ URL_ANIMES = "http://localhost:5001/animes"
 URL_ANIME = "http://localhost:5001/anime"
 
 TAMANHO_DA_PAGINA = 3
-NOME_DO_ANIME = "Naruto"
+NOME_DO_ANIME = "naruto"
 
 class TesteAnimes(unittest.TestCase):
 

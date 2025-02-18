@@ -15,6 +15,33 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Criando o banco de dados e selecionando ele
+UNLOCK TABLES;
+CREATE DATABASE IF NOT EXISTS animes;
+USE animes;
+--
+-- Table structure for table `estudio`
+--
+
+DROP TABLE IF EXISTS `estudio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `estudio` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `avatar` varchar(455) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estudio`
+--
+
+LOCK TABLES `estudio` WRITE;
+/*!40000 ALTER TABLE `estudio` DISABLE KEYS */;
+UNLOCK TABLES;
+
 DROP TABLE IF EXISTS `animes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -38,6 +65,7 @@ CREATE TABLE `animes` (
 
 LOCK TABLES `animes` WRITE;
 /*!40000 ALTER TABLE `animes` DISABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `feeds`
@@ -62,7 +90,7 @@ CREATE TABLE `feeds` (
 
 LOCK TABLES `feeds` WRITE;
 /*!40000 ALTER TABLE `feeds` DISABLE KEYS */;
-
+UNLOCK TABLES;
 --
 -- Table structure for table `comentarios`
 --
@@ -89,29 +117,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-
---
--- Table structure for table `estudio`
---
-
-DROP TABLE IF EXISTS `estudio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `estudio` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `avatar` varchar(455) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `estudio`
---
-
-LOCK TABLES `estudio` WRITE;
-/*!40000 ALTER TABLE `estudio` DISABLE KEYS */;
-
+UNLOCK TABLES;
 --
 -- Table structure for table `likes`
 --
@@ -135,11 +141,30 @@ CREATE TABLE `likes` (
 
 LOCK TABLES `likes` WRITE;
 /*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `animes`
 --
 
+INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"),
+            (2,"MAPPA","https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"),
+            (3,"Studio Bones","https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"),
+            (4,"Kyoto Animation","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdnE7e_KxTI9nR62ZUH0oSfI_t2I_bJ5UYQ&s"),
+            (5,"Toei Animation","https://www.nicepng.com/png/detail/315-3153350_toei-animation-toei-animation-logo-png.png"),
+            (6,"Studio Pierrot","https://i.pinimg.com/originals/33/15/38/331538b84919881127b9f606f23e471c.png"),
+            (7,"Madhouse","https://iconape.com/wp-content/png_logo_vector/madhouse-studio-logo.png"),
+            (8,"White Fox","https://hyphen.cc/works/1010_whitefox_logo.gif"),
+            (9,"Sunrise","https://img.freepik.com/vetores-premium/resumo-sun-logo-vintage-sun-icon-com-raios-isolados-no-fundo-branco-utilizavel-para-logotipos-de-negocios-e-natureza-elemento-de-modelo-de-design-de-logotipo-de-vetor-plana_393879-336.jpg"),
+            (10,"Production I.G","https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"),
+            (11,"Studio Ghibli","https://e7.pngegg.com/pngimages/426/435/png-clipart-ghibli-museum-catbus-studio-ghibli-my-neighbor-totoro-chihiro-ghibli-museum-catbus-thumbnail.png"),
+            (12,"Silver Link","https://static.wixstatic.com/media/d3fb2b_8d32b0e6d0714e6fb1b32eb4749814ca~mv2.png/v1/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Silver%20Link%20Logo.png"),
+            (13,"A-1 Pictures","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A-1_Pictures_Logo.svg/512px-A-1_Pictures_Logo.svg.png"),
+            (14,"Xebec","https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"),
+            (15,"Studio Deen","https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"),
+            (16,"P.A. Works","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s");
+/*!40000 ALTER TABLE `estudio` ENABLE KEYS */;
+UNLOCK TABLES;
 
 INSERT INTO `animes` VALUES
 (1,'Demon Slayer: Kimetsu no Yaiba', 'Tanjiro Kamado embarca em uma jornada para salvar sua irmã Nezuko e derrotar os demônios.', 9.8, 'https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba', 'https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg5f56fe0b6b40c3.75541837.jpg%3FlastEdited%3D1599536658%3Fo%3Dfeed&w=250&h=300&f=webp',1),
@@ -182,25 +207,6 @@ INSERT INTO `comentarios` VALUES (1,
 'teste email',
 '2024-12-28 21:12:05');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
-UNLOCK TABLES;
-
-INSERT INTO `estudio` VALUES (1,"Ufotable","https://res.cloudinary.com/teepublic/image/private/s--zAjzgUlc--/c_crop,x_10,y_10/c_fit,w_830/c_crop,g_north_west,h_1038,w_1038,x_-104,y_-448/l_upload:v1565806151:production:blanks:vdbwo35fw6qtflw9kezw/fl_layer_apply,g_north_west,x_-215,y_-559/b_rgb:000000/c_limit,f_jpg,h_630,q_90,w_630/v1692830825/production/designs/49649782_0.jpg"),
-            (2,"MAPPA","https://ih1.redbubble.net/image.2316168809.1704/ur,pin_large_front,square,1000x1000.u2.jpg"),
-            (3,"Studio Bones","https://pbs.twimg.com/media/FTh-4UyXsAIpV_8.jpg"),
-            (4,"Kyoto Animation","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzdnE7e_KxTI9nR62ZUH0oSfI_t2I_bJ5UYQ&s"),
-            (5,"Toei Animation","https://www.nicepng.com/png/detail/315-3153350_toei-animation-toei-animation-logo-png.png"),
-            (6,"Studio Pierrot","https://i.pinimg.com/originals/33/15/38/331538b84919881127b9f606f23e471c.png"),
-            (7,"Madhouse","https://iconape.com/wp-content/png_logo_vector/madhouse-studio-logo.png"),
-            (8,"White Fox","https://hyphen.cc/works/1010_whitefox_logo.gif"),
-            (9,"Sunrise","https://img.freepik.com/vetores-premium/resumo-sun-logo-vintage-sun-icon-com-raios-isolados-no-fundo-branco-utilizavel-para-logotipos-de-negocios-e-natureza-elemento-de-modelo-de-design-de-logotipo-de-vetor-plana_393879-336.jpg"),
-            (10,"Production I.G","https://ih1.redbubble.net/image.5213991815.5502/ur,pin_small_front,wide_portrait,750x1000.jpg"),
-            (11,"Studio Ghibli","https://e7.pngegg.com/pngimages/426/435/png-clipart-ghibli-museum-catbus-studio-ghibli-my-neighbor-totoro-chihiro-ghibli-museum-catbus-thumbnail.png"),
-            (12,"Silver Link","https://static.wixstatic.com/media/d3fb2b_8d32b0e6d0714e6fb1b32eb4749814ca~mv2.png/v1/fill/w_560,h_388,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Silver%20Link%20Logo.png"),
-            (13,"A-1 Pictures","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A-1_Pictures_Logo.svg/512px-A-1_Pictures_Logo.svg.png"),
-            (14,"Xebec","https://logovectorseek.com/wp-content/uploads/2020/08/xebec-adsorption-inc-logo-vector.png"),
-            (15,"Studio Deen","https://iconape.com/wp-content/png_logo_vector/studio-deen-logo.png"),
-            (16,"P.A. Works","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1S4MWN9v3c0nT4kphdNpvFAsGnpTWPbFoPw&s");
-/*!40000 ALTER TABLE `estudio` ENABLE KEYS */;
 UNLOCK TABLES;
 
 INSERT INTO `likes` VALUES (8,1,'brendogomes@gmail.com');

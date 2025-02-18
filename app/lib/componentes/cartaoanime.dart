@@ -26,12 +26,12 @@ class AnimeCartao extends StatelessWidget {
                           formatarCaminhoArquivo(anime["avatar"])))),
             Padding(
                   padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
-                  child: Text(anime["estudio"],
+                  child: Text(anime["nome_estudio"],
                       style: const TextStyle(fontSize: 15))),
             ]),
             Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text(anime["nome"],
+                child: Text(anime["nome_anime"],
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 15))),
             Padding(

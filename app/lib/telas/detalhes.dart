@@ -143,10 +143,10 @@ class _DetalhesState extends State<Detalhes> {
   Widget _exibirMensagemComentariosInexistentes() {
     return const Expanded(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Icon(Icons.error, size: 32, color: Colors.red),
-      Text("não existem comentários :(",
+      Icon(Icons.error, size: 26, color: Colors.red),
+      Text("                        não existem comentários.",
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.red))
+              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.red))
     ]));
   } // comentario inexistente
 
@@ -307,7 +307,7 @@ class _DetalhesState extends State<Detalhes> {
             Padding(
                 padding: const EdgeInsets.only(left: 10.0, bottom: 5.0),
                 child: Text(
-                  _anime["estudio"],
+                  _anime["nome_estudio"],
                   style: const TextStyle(fontSize: 15),
                 ))
           ]),

@@ -117,5 +117,5 @@ class ServicoCurtidas {
 
 // Formata a URL do caminho do arquivo
 String formatarCaminhoArquivo(String arquivo) {
-  return '$URL_ARQUIVOS/$arquivo';
+  return arquivo;
 }
