@@ -97,7 +97,8 @@ class _DetalhesState extends State<Detalhes> {
         .getComentarios(estadoApp.idAnime, _ultimoComentario, TAMANHO_DA_PAGINA)
         .then((comentarios) {
       _temComentarios = comentarios.isNotEmpty;
-
+      print('###############');
+      print(_temComentarios);
       if (_temComentarios) {
         _ultimoComentario = comentarios.last['comentario_id'];
       }
@@ -143,10 +144,10 @@ class _DetalhesState extends State<Detalhes> {
   Widget _exibirMensagemComentariosInexistentes() {
     return const Expanded(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Icon(Icons.error, size: 26, color: Colors.red),
+      Icon(Icons.error, size: 26, color: Color.fromARGB(255, 36, 58, 165)),
       Text("                        não existem comentários.",
           style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.red))
+              fontWeight: FontWeight.bold, fontSize: 16, color: Color.fromARGB(255, 36, 58, 165)))
     ]));
   } // comentario inexistente
 
@@ -251,7 +252,7 @@ class _DetalhesState extends State<Detalhes> {
 
   Future<void> _atualizarComentarios() async {
     _comentarios = [];
-    _ultimoComentario = 0;
+    _ultimoComentario = 0x7FFFFFFFFFFFFFFF;
 
     _carregarComentarios();
   }
@@ -475,6 +476,7 @@ class _DetalhesState extends State<Detalhes> {
                           suffixIcon: GestureDetector(
                               onTap: () {
                                 _adicionarComentario();
+                                _controladorNovoComentario.clear();
                               },
                               child: const Icon(Icons.send,
                                   color: Colors.black87)))))
