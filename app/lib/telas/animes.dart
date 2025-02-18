@@ -63,16 +63,26 @@ class _AnimesState extends State<Animes> {
 
   // Filtra e carregar os animes.
   void _carregarAnimes() {
-    _servicoAnimes.getAnimes(_ultimoAnime, tamanhoPagina).then((animes) {
-      setState(() {
-        if (animes.isNotEmpty) {
-          _ultimoAnime = animes.last["anime_id"];
-          
-        }
-        _animes.addAll(animes);
+    if (_filtro.isEmpty) {
+      _servicoAnimes.getAnimes(_ultimoAnime, tamanhoPagina).then((animes) {
+        setState(() {
+          if (animes.isNotEmpty) {
+            _ultimoAnime = animes.last["anime_id"];
+          }
+          _animes.addAll(animes);
+        });
       });
-    });
-  } //_carregarAnime
+    } else {
+      _servicoAnimes.findAnimes(_ultimoAnime, tamanhoPagina, _filtro).then((animes) {
+        setState(() {
+          if (animes.isNotEmpty) {
+            _ultimoAnime = animes.last["anime_id"];
+          }
+          _animes = animes; // Substitui a lista de animes pelos animes filtrados
+        });
+      });
+    }
+  }
 
   // Atualiza a lista de animes reiniciando a paginação.
   Future<void> _atualizarAnimes() async {
@@ -83,8 +93,12 @@ class _AnimesState extends State<Animes> {
     _carregarAnimes();
   }
 
-  void _aplicarFiltro(String filtro) {
-    _filtro = filtro;
+    void _aplicarFiltro(String filtro) {
+    setState(() {
+      _filtro = filtro;
+      _animes = []; 
+      _ultimoAnime = 0;
+    });
     _carregarAnimes();
   }
 
