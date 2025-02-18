@@ -25,7 +25,6 @@ class Animes extends StatefulWidget {
 const int tamanhoPagina = 4;
 
 class _AnimesState extends State<Animes> {
-  
   List<dynamic> _animes = [];
 
   final ScrollController _controladorListaAnimes = ScrollController();
@@ -68,6 +67,7 @@ class _AnimesState extends State<Animes> {
       setState(() {
         if (animes.isNotEmpty) {
           _ultimoAnime = animes.last["anime_id"];
+          
         }
         _animes.addAll(animes);
       });
